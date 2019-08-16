@@ -30,7 +30,7 @@
         },
         data(){
             return {
-                comName: 'List',
+                comName: 'Detail',
             }
         }
     }

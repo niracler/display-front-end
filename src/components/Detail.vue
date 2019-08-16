@@ -58,23 +58,23 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
+                        <label>Name: </label>
                         <label>
-                            <textarea class="form-control" rows="3"></textarea>
+                            <input type="text" class="form-control" v-model="user">
                         </label>
+                        <textarea class="form-control" rows="3" v-model="comment"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" @click="postComment">Submit</button>
                 </form>
             </div>
         </div>
 
         <!-- Single Comment -->
-        <div class="media mb-4">
+        <div class="media mb-4" v-for="item in list" :key="item.id">
             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
             <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
-                odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                fringilla. Donec lacinia congue felis in faucibus.
+                <h5 class="mt-0">{{ item.user }}</h5>
+                {{ item.comment }}
             </div>
         </div>
 
@@ -114,7 +114,26 @@
 
 <script>
     export default {
-        name: "Detail"
+        name: "Detail",
+        data() {
+            return {
+                user: '',
+                comment: '',
+                list: [
+                    {id: Date.now(), user: '李一白', comment: '窗前明月光'},
+                    {id: Date.now(), user: '李二白', comment: '疑是地上霜'},
+                    {id: Date.now(), user: '李三白', comment: '举头望明月'},
+                    {id: Date.now(), user: '李四白', comment: '低头思故乡'},
+                ]
+
+            }
+        },
+        methods:{
+            postComment(){
+                var comment = { id: Date.now(), user: this.user, comment:this.comment };
+                this.list.push(comment)
+            }
+        }
     }
 </script>
 

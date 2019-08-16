@@ -21,7 +21,7 @@
             <div class="card-header">Category</div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-lg-3" v-for="category in categories">
+                    <div class="col-lg-3" v-for="category in categories" :key='category.id'>
                         <ul class="list-unstyled mb-0">
                             <li>
                                 <a href="#">
@@ -46,6 +46,8 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
         name: "SideBar",
         data() {
