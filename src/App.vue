@@ -7,11 +7,7 @@
         <!--        <HelloWorld msg="Welcome to Your Vue.js App"/>-->
         <h1>{{ msg }}</h1>
 
-<!--        <div v-for="site in info">-->
-<!--            {{ site.name }}-->
-<!--        </div>-->
-
-        <div v-for="(article, key) in articles">
+        <div v-for="(article) in data.results">
             <br>
             <h3 class="text-primary">
                 <a>{{ article.title }}</a>
@@ -21,6 +17,23 @@
             </p>
             <small>Read More</small>
         </div>
+
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+      <span class="page-link">
+        2
+        <span class="sr-only">(current)</span>
+      </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
     </div>
 
 </template>
@@ -37,13 +50,13 @@
         data() {
             return {
                 msg: '我们这里是一个游戏新闻资讯平台！！',
-                articles:null
+                data: null
             }
         },
-        mounted () {
+        mounted() {
             axios
                 .get('http://plrom.niracler.com:8000/api/article/')
-                .then(response => (this.articles = response.data.results))
+                .then(response => (this.data = response.data))
                 .catch(function (error) { // 请求失败处理
                     console.log(error);
                 });
