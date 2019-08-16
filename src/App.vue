@@ -16,7 +16,7 @@
                         <a>{{ article.title }}</a>
                     </h3>
                     <p>
-                        {{ article.content }}
+                        {{ article.content | msgFormat }}
                     </p>
                     <small>Read More</small>
                 </div>
@@ -59,6 +59,8 @@
 <script>
     import HelloWorld from './components/HelloWorld.vue' //导入组件，组件的运行机制究竟是怎么样的？
 
+
+
     export default {
         name: 'app',
         components: {
@@ -85,7 +87,7 @@
                 .catch(function (error) { // 请求失败处理
                     console.log(error);
                 });
-        }
+        },
     }
 </script>
 
