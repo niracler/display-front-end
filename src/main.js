@@ -1,6 +1,10 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import App from './App.vue';
+// import $ from 'jquery'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+Vue.use(VueRouter);
 Vue.config.productionTip = false;
 // Vue.http.option.root = 'http://plrom.niracler.com:8000';
 

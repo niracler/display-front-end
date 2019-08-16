@@ -2,14 +2,14 @@
 <!--下面这个是展示模板-->
 <template>
 
-        <div class="row">
-            <div class="col-md-8">
-                <component :is="comName"></component>
-            </div>
-            <div class="col-md-4">
-                <SideBar></SideBar>
-            </div>
+    <div class="row">
+        <div class="col-md-8">
+            <component :is="comName"></component>
         </div>
+        <div class="col-md-4">
+            <SideBar></SideBar>
+        </div>
+    </div>
 
 </template>
 
@@ -28,9 +28,9 @@
             Detail,
             List
         },
-        data(){
+        data() {
             return {
-                comName: 'Detail',
+                comName: 'List',
             }
         }
     }
