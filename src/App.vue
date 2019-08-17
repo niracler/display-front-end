@@ -1,32 +1,37 @@
 <!--让我好好地享受一下你们吧-->
 <!--下面这个是展示模板-->
 <template>
+    <div id="app">
 
-    <div class="row">
-        <div class="col-md-8">
-            <component :is="comName"></component>
+        <Header></Header>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-8">
+                    <router-view name="main"></router-view>
+                </div>
+
+                <div class="col-md-4">
+                    <router-view name="sidebar"></router-view>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <SideBar></SideBar>
-        </div>
+
+        <Footer></Footer>
+
     </div>
-
 </template>
 
 <script>
-    import HelloWorld from './components/HelloWorld.vue' //导入组件，组件的运行机制究竟是怎么样的？
-    import SideBar from "./components/SideBar";
-    import Detail from "./components/Detail";
-    import List from "./components/List";
+    import Header from "@/components/Header";
+    import Footer from "@/components/Footer";
 
     export default {
         name: 'app',
-        components: { //用于定义实例内部私有组件
-            // eslint-disable-next-line vue/no-unused-components
-            HelloWorld,
-            SideBar,
-            Detail,
-            List
+        components: {
+            Header,
+            Footer
         },
         data() {
             return {

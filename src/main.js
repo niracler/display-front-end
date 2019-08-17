@@ -1,21 +1,24 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import App from './App.vue';
-// import $ from 'jquery'
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import axios from 'axios'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-Vue.use(VueRouter);
+
 Vue.config.productionTip = false;
-// Vue.http.option.root = 'http://plrom.niracler.com:8000';
+Vue.prototype.$http = axios;
 
 new Vue({
-  render: h => h(App),
+    render: h => h(App),
+    router,
 }).$mount('#app');
 
-Vue.filter('msgFormat', function (msg, num=150) {
-  if (!msg) return '';
-  if (msg.length > num) {
-    return msg.slice(0, num) + '...'
-  }
-  return msg
+//全局的过滤器
+Vue.filter('msgFormat', function (msg, num = 150) {
+    if (!msg) return '';
+    if (msg.length > num) {
+        return msg.slice(0, num) + '...'
+    }
+    return msg
 });

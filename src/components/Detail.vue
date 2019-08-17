@@ -3,18 +3,18 @@
     <div>
 
         <!-- Title -->
-        <h1 class="mt-4">Post Title</h1>
+        <h1 class="mt-4">{{ article.title }}</h1>
 
         <!-- Author -->
         <p class="lead">
             by
-            <a href="#">Start Bootstrap</a>
+            <a href="#">{{ article.category.name }}</a>
         </p>
 
         <hr>
 
         <!-- Date/Time -->
-        <p>Posted on January 1, 2019 at 12:00 PM</p>
+        <p>Posted on {{ article.publish_time }}</p>
 
         <hr>
 
@@ -24,31 +24,7 @@
         <hr>
 
         <!-- Post Content -->
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error
-            quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum
-            minus inventore?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste
-            ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus,
-            voluptatibus.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius
-            illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim,
-            iure!</p>
-
-        <blockquote class="blockquote">
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in
-                <cite title="Source Title">Source Title</cite>
-            </footer>
-        </blockquote>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat
-            totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam
-            tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui,
-            necessitatibus, est!</p>
+        {{ article.content }}
 
         <hr>
 
@@ -113,27 +89,56 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
         name: "Detail",
         data() {
             return {
+                baseUrl: 'http://plrom.niracler.com:8000/api/article/?id=',
+                id: '',
                 user: '',
                 comment: '',
+                article: '不是我的错',
                 list: [
-                    {id: Date.now(), user: '李一白', comment: '窗前明月光'},
-                    {id: Date.now(), user: '李二白', comment: '疑是地上霜'},
-                    {id: Date.now(), user: '李三白', comment: '举头望明月'},
-                    {id: Date.now(), user: '李四白', comment: '低头思故乡'},
+                    {id: 1, user: '李一白', comment: '窗前明月光'},
+                    {id: 2, user: '李二白', comment: '疑是地上霜'},
+                    {id: 3, user: '李三白', comment: '举头望明月'},
+                    {id: 4, user: '李四白', comment: '低头思故乡'},
                 ]
 
             }
         },
-        methods:{
-            postComment(){
-                var comment = { id: Date.now(), user: this.user, comment:this.comment };
+        methods: {
+            postComment() {
+                var comment = {id: Date.now(), user: this.user, comment: this.comment};
                 this.list.push(comment)
-            }
-        }
+            },
+            getDetail() {
+                if (this.$route.params.id) {
+                    this.id = this.$route.params.id;
+                } else {
+                    this.id = 1
+                }
+
+                var url = this.baseUrl + this.id;
+                axios
+                    .get(url)
+                    .then(response => {
+                        if (response.status === 200) {
+                            this.article = response.data.results[0];
+                        } else {
+                            alert('获取数据失败！！！')
+                        }
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        self.console.log(error);
+                    });
+            },
+        },
+        created() {
+            this.getDetail();
+        },
     }
 </script>
 

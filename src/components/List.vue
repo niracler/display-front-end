@@ -14,7 +14,9 @@
                 <p class="card-text">
                     {{ article.content | msgFormat }}
                 </p>
-                <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                <router-link :to="{ name:'detail', params:{ id:article.id, name:article.title } }" class="btn btn-primary">
+                    Read More &rarr;
+                </router-link>
             </div>
             <div class="card-footer text-muted">
                 Posted on {{ article.publish_time | timeFormat }} by
@@ -25,10 +27,10 @@
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
-                <a class="page-link" href="#" @click="previousPage()">&larr; Older</a>
+                <a class="page-link" :href="'/list/'+(page++)">&larr; Older</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#" @click="nextPage()">Newer &rarr;</a>
+                <a class="page-link" :href="'/list/'+(page--)">Newer &rarr;</a>
             </li>
         </ul>
     </div>
@@ -44,22 +46,23 @@
             return {
                 msg: '我们这里是一个游戏新闻资讯平台！！',
                 baseUrl: 'http://plrom.niracler.com:8000/api/article/?p=',
-                currPage: 1,
                 articles: null,
-                next: null,
-                previous: null
             }
         },
         methods: {
-            getAllList(currPage = this.currPage) {
-                var url = this.baseUrl + currPage;
+            getAllList() {
+                if (this.$route.params.page) {
+                    this.page = this.$route.params.page;
+                } else {
+                    this.page = 1
+                }
+
+                var url = this.baseUrl + this.page;
                 axios
                     .get(url)
                     .then(response => {
                         if (response.status === 200) {
                             this.articles = response.data.results;
-                            this.previous = response.data.previous;
-                            this.next = response.data.next;
                         } else {
                             alert('获取数据失败！！！')
                         }
@@ -68,14 +71,6 @@
                         self.console.log(error);
                     });
             },
-            nextPage() {
-                this.currPage += 1;
-                this.getAllList();
-            },
-            previousPage() {
-                this.currPage -= 1;
-                this.getAllList();
-            }
         },
         created() {
             this.getAllList();
