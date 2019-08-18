@@ -1,5 +1,5 @@
 <template>
-    <div id="About">
+    <div id="about">
         <br>
         <h1> 我应该说什么好呢 </h1>
     </div>
@@ -7,7 +7,7 @@
 
 <script>
     export default {
-        name: "About"
+        name: "about"
     }
 </script>
 

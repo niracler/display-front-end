@@ -1,6 +1,6 @@
 <template>
     <!-- Post Content Column -->
-    <div>
+    <div id="article-detail">
 
         <!-- Title -->
         <h1 class="mt-4">{{ article.title }}</h1>
@@ -8,7 +8,9 @@
         <!-- Author -->
         <p class="lead">
             by
-            <a href="#">{{ article.category.name }}</a>
+            <router-link :to="{name:'article', query:{ website_name:article.website_name }}">
+                {{ article.website_name }}
+            </router-link>
         </p>
 
         <hr>

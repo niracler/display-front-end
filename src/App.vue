@@ -3,7 +3,7 @@
 <template>
     <div id="app">
 
-        <Header></Header>
+        <common-header></common-header>
 
         <div class="container">
             <div class="row">
@@ -18,26 +18,21 @@
             </div>
         </div>
 
-        <Footer></Footer>
+        <common-footer></common-footer>
 
     </div>
 </template>
 
 <script>
-    import Header from "@/components/Header";
-    import Footer from "@/components/Footer";
+    import CommonHeader from "@/views/header/CommonHeader";
+    import CommonFooter from "@/views/footer/CommonFooter";
 
     export default {
         name: 'app',
         components: {
-            Header,
-            Footer
+            'common-header' : CommonHeader,
+            'common-footer' : CommonFooter
         },
-        data() {
-            return {
-                comName: 'List',
-            }
-        }
     }
 </script>
 

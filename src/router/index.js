@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import About from "@/components/About";
-import List from "@/components/List";
-import Detail from "@/components/Detail";
-import SideBar from "@/components/SideBar";
+import About from "@/views/about/About";
+import ArticleList from "@/views/article/ArticleList";
+import SideBar from "@/views/sidebar/SideBar";
+import ArticleDetail from "@/views/article/ArticleDetail";
 
 Vue.use(Router);
 
@@ -15,7 +15,7 @@ export default new Router({
             path: '/',
             name: 'root',
             components: {
-                main: List,
+                main: ArticleList,
                 sidebar: SideBar
             }
         },
@@ -28,20 +28,31 @@ export default new Router({
             }
         },
         {
-            path: '/detail/:id',
-            name: 'detail',
+            //准备废弃
+            path: '/list/:page',
+            name: 'list',
             components: {
-                main: Detail,
+                main: ArticleList,
                 sidebar: SideBar
             },
         },
         {
-            path: '/list/:page',
-            name: 'list',
+            //其实是一个文章列表啦
+            path: '/article',
+            name: 'article',
             components: {
-                main: List,
+                main: ArticleList,
                 sidebar: SideBar
-            },
+            }
+        },
+        {
+            //文章详细内容
+            path: '/article/:id',
+            name: 'detail',
+            components: {
+                main: ArticleDetail,
+                sidebar: SideBar
+            }
         },
     ]
 })

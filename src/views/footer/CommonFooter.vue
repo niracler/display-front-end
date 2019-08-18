@@ -1,6 +1,6 @@
 <template>
     <!-- Footer -->
-    <footer id="Footer" class="page-footer font-small bg-dark">
+    <footer id="common-footer" class="page-footer font-small bg-dark">
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3 text-light">© 2019 Copyright:
             <a href="https://www.niracler.com"> www.niracler.com</a>
@@ -11,7 +11,7 @@
 
 <script>
     export default {
-        name: "Footer"
+        name: "common-footer"
     }
 </script>
 

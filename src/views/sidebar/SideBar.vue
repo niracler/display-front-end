@@ -24,9 +24,9 @@
                     <div class="col-lg-3" v-for="category in categories" :key='category.id'>
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <a href="#">
+                                <router-link :to="{name:'article', query:{ category:category.id }}">
                                     {{ category.name }}
-                                </a>
+                                </router-link>
                             </li>
                         </ul>
                     </div>

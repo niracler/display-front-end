@@ -34,3 +34,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - [vue-cli3出现Invalid Host header的解决方案](https://blog.csdn.net/guzhao593/article/details/85918869)
 - [Vue.js 教程](https://www.runoob.com/vue2/vue-tutorial.html)
+- [路由组件传参](https://router.vuejs.org/zh/guide/essentials/passing-props.html#对象模式)
+- [vue请求中 post get传参方式](https://blog.csdn.net/zhaofuqiangmycomm/article/details/89479904)
