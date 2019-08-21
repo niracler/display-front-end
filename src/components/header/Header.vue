@@ -1,5 +1,6 @@
 <template>
-    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-primary">
+
         <div class="container">
             <router-link class="navbar-brand" exact-active-class="active" :to="{name:'root'}">GameNews</router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -36,7 +37,7 @@
 
 <script>
     export default {
-        name: "common-header"
+        name: "Header"
     }
 </script>
 
