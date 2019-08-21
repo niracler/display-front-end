@@ -2,35 +2,40 @@
     <!-- Post Content Column -->
     <div id="article-detail">
 
-        <!-- Title -->
-        <h1 class="mt-4">{{ article.title }}</h1>
+        <div class="article">
+            <!-- Title -->
+            <h1 class="mt-4">{{ article.title }}</h1>
 
-        <!-- Author -->
-        <p class="lead">
-            by
-            <router-link :to="{name:'article', query:{ website_name:article.website_name }}">
-                {{ article.website_name }}
-            </router-link>
-        </p>
+            <!-- Author -->
+            <p class="lead">
+                by
+                <router-link :to="{name:'article', query:{ website_name:article.website_name }}">
+                    {{ article.website_name }}
+                </router-link>
+            </p>
 
-        <hr>
+            <hr>
 
-        <!-- Date/Time -->
-        <p>Posted on {{ article.publish_time }}</p>
+            <!-- Date/Time -->
+            <p>Posted on {{ article.publish_time }}</p>
 
-        <hr>
+            <hr>
 
-        <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+            <!-- Preview Image -->
+            <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
 
-        <hr>
+            <hr>
 
-        <!-- Post Content -->
-        {{ article.content }}
+            <!-- Post Content -->
+            {{ article.content }}
 
-        <hr>
+            <hr>
+        </div>
 
         <!-- Comments Form -->
+        <article-comment></article-comment>
+
+
         <div class="card my-4">
             <h5 class="card-header">Leave a Comment:</h5>
             <div class="card-body">
@@ -92,9 +97,13 @@
 
 <script>
     import axios from 'axios'
+    import ArticleComment from "@/views/article/ArticleComment";
 
     export default {
         name: "Detail",
+        components:{
+           'article-comment':ArticleComment,
+        },
         data() {
             return {
                 baseUrl: 'http://plrom.niracler.com:8000/api/article/?id=',
