@@ -6,22 +6,22 @@
             <small></small>
         </h1>
 
-        <article-base-list :articles="articles"></article-base-list>
-        <article-pagination :next="next" :pre="pre"></article-pagination>
+        <ArticleBaseList :articles="articles"></ArticleBaseList>
+        <ArticlePagination :next="next" :pre="pre"></ArticlePagination>
     </div>
 
 </template>
 
 <script>
     import axios from 'axios'
-    import BaseList from "@/views/article/ArticleBaseList";
+    import ArticleBaseList from "@/views/article/ArticleBaseList";
     import ArticlePagination from "@/views/article/ArticlePagination";
 
     export default {
         name: "article-list",
         components: {
-            "article-base-list": BaseList,
-            "article-pagination": ArticlePagination
+            ArticleBaseList,
+            ArticlePagination
         },
         data() {
             return {
@@ -77,5 +77,5 @@
 </script>
 
 <style scoped>
-
+    
 </style>
