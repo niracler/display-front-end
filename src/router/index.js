@@ -6,6 +6,8 @@ import About from "../views/about/About";
 import ArticleDetail from "../views/article/ArticleDetail";
 import Login from "../views/account/Login";
 import Register from "../views/account/Register";
+import Profile from "../views/account/Profile";
+import SideBar from "../components/sidebar/SideBar";
 
 Vue.use(Router);
 
@@ -16,41 +18,54 @@ export default new Router({
             //登录
             path: '/login',
             name: 'login',
-            component:Login
+            component: Login
         },
         {
             //注册
             path: '/register',
             name: 'register',
-            component:Register
+            component: Register
         },
+
         {
             path: '/',
             name: 'root',
-            redirect: 'list',
+            redirect: 'article',
             component: Layout,
             children: [
                 {
-                    path: 'list',
-                    name: 'list',
-                    component: ArticleList
-                },
-                {
                     path: 'about',
                     name: 'about',
-                    component: About
+                    components: {
+                        main: About,
+                        sidebar: SideBar
+                    }
+                },
+                {
+                    //个人主页
+                    path: 'profile',
+                    name: 'profile',
+                    components: {
+                        body:Profile
+                    }
                 },
                 {
                     //其实是一个文章列表啦
                     path: 'article',
                     name: 'article',
-                    component: ArticleList,
+                    components: {
+                        main: ArticleList,
+                        sidebar: SideBar
+                    }
                 },
                 {
                     //文章详细内容
                     path: 'article/:id',
                     name: 'detail',
-                    component: ArticleDetail,
+                    components: {
+                        main:ArticleDetail,
+                        sidebar:SideBar
+                    }
                 },
             ]
         },

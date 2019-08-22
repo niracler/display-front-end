@@ -2,7 +2,7 @@
     <nav id="header" class="navbar navbar-expand-lg bg-primary-lighten-2 ">
 
         <div class="container">
-            <router-link class="navbar-brand" exact-active-class="active" :to="{name:'list'}">
+            <router-link class="navbar-brand" exact-active-class="active" :to="{name:'article'}">
                 <h4>GameNews</h4>
             </router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse float-right" id="navbarNav">
                 <ul class="navbar-nav ml-auto ">
                     <li class="nav-item">
-                        <router-link class="nav-link" exact-active-class="active" :to="{name:'list'}">
+                        <router-link class="nav-link" exact-active-class="active" :to="{name:'article'}">
                             Home
                         </router-link>
                     </li>
@@ -46,7 +46,7 @@
                             <div class="dropdown-content-body">
                                 <ul>
                                     <li class="notification-unread">
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void(0)">
                                             <img class="float-left mr-3 avatar-img" src="/images/avatar/1.jpg" alt="">
                                             <div class="notification-content">
                                                 <div class="notification-heading">Saiful Islam</div>
@@ -57,7 +57,7 @@
                                         </a>
                                     </li>
                                     <li class="notification-unread">
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void(0)">
                                             <img class="float-left mr-3 avatar-img" src="/images/avatar/2.jpg" alt="">
                                             <div class="notification-content">
                                                 <div class="notification-heading">Adam Smith</div>
@@ -67,7 +67,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void(0)">
                                             <img class="float-left mr-3 avatar-img" src="/images/avatar/3.jpg" alt="">
                                             <div class="notification-content">
                                                 <div class="notification-heading">Barak Obama</div>
@@ -78,7 +78,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void(0)">
                                             <img class="float-left mr-3 avatar-img" src="/images/avatar/4.jpg" alt="">
                                             <div class="notification-content">
                                                 <div class="notification-heading">Hilari Clinton</div>
@@ -103,7 +103,7 @@
                             <div class="dropdown-content-body">
                                 <ul>
                                     <li>
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void(0)">
                                             <span class="mr-3 avatar-icon bg-success-lighten-2"><i
                                                     class="icon-present"></i></span>
                                             <div class="notification-content">
@@ -113,7 +113,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void(0)">
                                             <span class="mr-3 avatar-icon bg-danger-lighten-2"><i
                                                     class="icon-present"></i></span>
                                             <div class="notification-content">
@@ -123,7 +123,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void(0)">
                                             <span class="mr-3 avatar-icon bg-success-lighten-2"><i
                                                     class="icon-present"></i></span>
                                             <div class="notification-content">
@@ -133,7 +133,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void(0)">
                                             <span class="mr-3 avatar-icon bg-danger-lighten-2"><i
                                                     class="icon-present"></i></span>
                                             <div class="notification-content">
@@ -155,7 +155,7 @@
                             <div class="dropdown-content-body">
                                 <ul>
                                     <li>
-                                        <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                        <router-link :to="{name:'profile'}"><i class="icon-user"></i> <span>Profile</span></router-link>
                                     </li>
                                     <li>
                                         <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span>
