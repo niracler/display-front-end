@@ -1,9 +1,9 @@
 <template>
     <nav id="header" class="navbar navbar-expand-lg bg-primary-lighten-2 ">
 
-        <div class="container">
+        <div class="container-fluid w-75">
             <router-link class="navbar-brand" exact-active-class="active" :to="{name:'article'}">
-                <h4>GameNews</h4>
+                <h3 class="text-primary">GameNews</h3>
             </router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
