@@ -26,7 +26,7 @@
 
 <script>
     export default {
-        name: "article-base-list",
+        name: "ArticleBaseList",
         props: {
             articles: Array,
         },

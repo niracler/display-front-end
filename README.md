@@ -39,3 +39,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [Nginx 部署Vue前端项目](https://blog.csdn.net/jeikerxiao/article/details/80885875)
 - [Quixlab - Free Bootstrap 4 HTML5 Admin Dashboard Template](https://themewagon.com/themes/free-bootstrap-4-html5-admin-dashboard-template-quixlab/)
 - [Matrix Admin - Free HTML5 Bootstrap 4 admin dashboard template](https://themewagon.com/themes/free-html5-bootstrap-4-admin-dashboard-template-matrix-admin/)
+- [Bootstrap dropdown not working](https://stackoverflow.com/questions/12458522/bootstrap-dropdown-not-working)

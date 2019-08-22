@@ -1,78 +1,100 @@
 <template>
     <div id="article-comment">
         <div class="card">
+            <h5 class="card-header">Leave a Comment:</h5>
             <div class="card-body">
-                <h4 class="card-title m-b-0">Recent Posts</h4>
+                <form action="#" class="form-profile">
+                    <div class="form-group">
+                        <textarea class="form-control" name="textarea" id="textarea" cols="30" rows="2" placeholder="Post a new message"></textarea>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <ul class="mb-0 form-profile__icons">
+                            <li class="d-inline-block">
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-user"></i></button>
+                            </li>
+                            <li class="d-inline-block">
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-paper-plane"></i></button>
+                            </li>
+                            <li class="d-inline-block">
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-camera"></i></button>
+                            </li>
+                            <li class="d-inline-block">
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-smile"></i></button>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary px-3 ml-4">Send</button>
+                    </div>
+                </form>
             </div>
-            <div class="comment-widgets scrollable">
-                <!-- Comment Row -->
-                <div class="d-flex flex-row comment-row m-t-0">
-                    <div class="p-2"><img src="/assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text w-100">
-                        <h6 class="font-medium">James Anderson</h6>
-                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                        <div class="comment-footer">
-                            <span class="text-muted float-right">April 14, 2016</span>
-                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                            <button type="button" class="btn btn-success btn-sm">Publish</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="media media-reply">
+                    <img class="mr-3 circle-rounded" src="/images/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
+                    <div class="media-body">
+                        <div class="d-sm-flex justify-content-between mb-2">
+                            <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+                            <div class="media-reply__link">
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
+                                <button class="btn btn-transparent text-dark font-weight-bold p-0 ml-2">Reply</button>
+                            </div>
+                        </div>
+
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                        <ul>
+                            <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/images/blog/2.jpg" alt=""></li>
+                            <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/images/blog/3.jpg" alt=""></li>
+                            <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/images/blog/4.jpg" alt=""></li>
+                            <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/images/blog/1.jpg" alt=""></li>
+                        </ul>
+
+                        <div class="media mt-3">
+                            <img class="mr-3 circle-rounded circle-rounded" src="/images/avatar/4.jpg" width="50" height="50" alt="Generic placeholder image">
+                            <div class="media-body">
+                                <div class="d-sm-flex justify-content-between mb-2">
+                                    <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+                                    <div class="media-reply__link">
+                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
+                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
+                                        <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
+                                    </div>
+                                </div>
+                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Comment Row -->
-                <div class="d-flex flex-row comment-row">
-                    <div class="p-2"><img src="/assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text active w-100">
-                        <h6 class="font-medium">Michael Jorden</h6>
-                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                        <div class="comment-footer">
-                            <span class="text-muted float-right">May 10, 2016</span>
-                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                            <button type="button" class="btn btn-success btn-sm">Publish</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+
+                <div class="media media-reply">
+                    <img class="mr-3 circle-rounded" src="/images/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
+                    <div class="media-body">
+                        <div class="d-sm-flex justify-content-between mb-2">
+                            <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+                            <div class="media-reply__link">
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
+                                <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
+                            </div>
                         </div>
+
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                     </div>
                 </div>
-                <!-- Comment Row -->
-                <div class="d-flex flex-row comment-row">
-                    <div class="p-2"><img src="/assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text w-100">
-                        <h6 class="font-medium">Johnathan Doeting</h6>
-                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                        <div class="comment-footer">
-                            <span class="text-muted float-right">August 1, 2016</span>
-                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                            <button type="button" class="btn btn-success btn-sm">Publish</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+
+                <div class="media media-reply">
+                    <img class="mr-3 circle-rounded" src="/images/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
+                    <div class="media-body">
+                        <div class="d-sm-flex justify-content-between mb-2">
+                            <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+                            <div class="media-reply__link">
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
+                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
+                                <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Comment Row -->
-                <div class="d-flex flex-row comment-row">
-                    <div class="p-2"><img src="/assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text w-100">
-                        <h6 class="font-medium">Johnathan Doeting</h6>
-                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                        <div class="comment-footer">
-                            <span class="text-muted float-right">August 1, 2016</span>
-                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                            <button type="button" class="btn btn-success btn-sm">Publish</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Comment Row -->
-                <div class="d-flex flex-row comment-row">
-                    <div class="p-2"><img src="/assets/images/users/3.jpg" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text w-100">
-                        <h6 class="font-medium">Johnathan Doeting</h6>
-                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                        <div class="comment-footer">
-                            <span class="text-muted float-right">August 1, 2016</span>
-                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                            <button type="button" class="btn btn-success btn-sm">Publish</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                        </div>
+
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                     </div>
                 </div>
             </div>
@@ -82,7 +104,7 @@
 
 <script>
     export default {
-        name: "article-comment"
+        name: "ArticleComment"
     }
 </script>
 

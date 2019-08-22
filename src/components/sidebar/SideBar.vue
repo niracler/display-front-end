@@ -10,26 +10,20 @@
                         <input type="text" class="form-control" placeholder="Search for...">
                     </label>
                     <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="button">Go!</button>
-                            </span>
+                        <button class="btn btn-secondary" type="button">Go!</button>
+                    </span>
                 </div>
             </div>
         </div>
 
         <!-- Categories Widget -->
-        <div class="card my-4">
-            <div class="card-header">Category</div>
+        <div class="card">
+            <h5 class="card-header">Category</h5>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-3" v-for="category in categories" :key='category.id'>
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                                <router-link :to="{name:'article', query:{ category:category.id }}">
-                                    {{ category.name }}
-                                </router-link>
-                            </li>
-                        </ul>
-                    </div>
+                <div class=" bootstrap-label">
+                    <router-link class="p-1" :to="{name:'article', query:{ category:category.id }}" v-for="category in categories" :key='category.id'>
+                           <span :class="'label '+ label_colors[category.id%8]">{{ category.name }}</span>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -52,7 +46,17 @@
         name: "SideBar",
         data() {
             return {
-                categories: null
+                categories: null,
+                label_colors: [
+                    "label-primary",
+                    "label-secondary",
+                    "label-success",
+                    "label-danger",
+                    "label-warning",
+                    "label-info",
+                    "label-light",
+                    "label-dark",
+                ],
             }
         },
         mounted() {

@@ -18,7 +18,7 @@
 
 <script>
     export default {
-        name: "article-pagination",
+        name: "ArticlePagination",
         props: {
             next: String,
             pre: String,

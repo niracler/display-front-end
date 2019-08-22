@@ -4,15 +4,9 @@ import router from './router'
 import axios from 'axios'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './assets/style.css'
 import 'jquery/dist/jquery.js'
 import 'popper.js'
-import 'bootstrap/dist/js/bootstrap.min'
-
-//<!--<script src="assets/libs/jquery/dist/jquery.min.js"></script>-->
-// <!--&lt;!&ndash; Bootstrap tether Core JavaScript &ndash;&gt;-->
-// <!--<script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>-->
-// <!--<script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>-->
+import './assets/css/style.css'
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;

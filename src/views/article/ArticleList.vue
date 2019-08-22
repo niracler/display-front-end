@@ -18,7 +18,7 @@
     import ArticlePagination from "@/views/article/ArticlePagination";
 
     export default {
-        name: "article-list",
+        name: "ArticleList",
         components: {
             ArticleBaseList,
             ArticlePagination
