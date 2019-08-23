@@ -18,6 +18,9 @@
                 <router-link :to="{name:'article', query:{ website_name:article.website_name }}">
                     {{ article.website_name }}
                 </router-link>
+                <router-link class="card-link float-right" :to="{name:'article', query:{ category:article.category.id }}">
+                    <span :class="'label '+ label_colors[article.category.id%8]">{{ article.category.name }}</span>
+                </router-link>
             </div>
         </div>
 
@@ -29,6 +32,21 @@
         name: "ArticleBaseList",
         props: {
             articles: Array,
+        },
+        data() {
+            return {
+                categories: null,
+                label_colors: [
+                    "label-primary",
+                    "label-secondary",
+                    "label-success",
+                    "label-danger",
+                    "label-warning",
+                    "label-info",
+                    "label-light",
+                    "label-dark",
+                ],
+            }
         },
         //这里放的是局部的过滤器
         filters: {

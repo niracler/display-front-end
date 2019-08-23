@@ -38,8 +38,10 @@
             <hr>
         </div>
 
+        <TimeLine></TimeLine>
+
         <!-- Comments Form -->
-        <article-comment></article-comment>
+        <ArticleComment></ArticleComment>
 
     </div>
 </template>
@@ -47,11 +49,13 @@
 <script>
     import axios from 'axios'
     import ArticleComment from "@/views/article/ArticleComment";
+    import TimeLine from "../../components/timeline/TimeLine";
 
     export default {
         name: "ArticleDetail",
         components:{
-           'article-comment':ArticleComment,
+            ArticleComment,
+            TimeLine,
         },
         data() {
             return {

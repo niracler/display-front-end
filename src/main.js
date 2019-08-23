@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.js'
 import 'popper.js'
 import './assets/css/style.css'
+import 'chart.js/dist/Chart.bundle.min'
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;

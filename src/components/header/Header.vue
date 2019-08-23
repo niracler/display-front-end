@@ -164,7 +164,7 @@
                                     </li>
                                     <hr class="my-2">
                                     <li>
-                                        <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
+                                        <router-link :to="{name:'settings'}"><i class="icon-settings"></i> <span>Settings</span></router-link>
                                     </li>
                                     <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
                                 </ul>

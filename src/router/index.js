@@ -8,6 +8,8 @@ import Login from "../views/account/Login";
 import Register from "../views/account/Register";
 import Profile from "../views/account/Profile";
 import SideBar from "../components/sidebar/SideBar";
+import AccountSideBar from "../views/account/AccountSideBar";
+import Settings from "../views/account/Settings";
 
 Vue.use(Router);
 
@@ -26,7 +28,6 @@ export default new Router({
             name: 'register',
             component: Register
         },
-
         {
             path: '/',
             name: 'root',
@@ -46,7 +47,17 @@ export default new Router({
                     path: 'profile',
                     name: 'profile',
                     components: {
-                        body:Profile
+                        main:Profile,
+                        sidebar:AccountSideBar
+                    }
+                },
+                {
+                    //个人信息设置
+                    path: 'settings',
+                    name: 'settings',
+                    components: {
+                        main:Settings,
+                        sidebar:AccountSideBar
                     }
                 },
                 {

@@ -40,3 +40,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [Quixlab - Free Bootstrap 4 HTML5 Admin Dashboard Template](https://themewagon.com/themes/free-bootstrap-4-html5-admin-dashboard-template-quixlab/)
 - [Matrix Admin - Free HTML5 Bootstrap 4 admin dashboard template](https://themewagon.com/themes/free-html5-bootstrap-4-admin-dashboard-template-matrix-admin/)
 - [Bootstrap dropdown not working](https://stackoverflow.com/questions/12458522/bootstrap-dropdown-not-working)
+- [Bootstrap 4 Timeline](https://www.codeply.com/go/dI6CknFxts/bootstrap-4-timeline)
+- [vue 引入公共css文件](https://blog.csdn.net/Smartsunsing/article/details/78529374)
