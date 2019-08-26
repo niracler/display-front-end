@@ -43,7 +43,10 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#profile1">最新评论</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#contact1">热门</a>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#contact1">
+                                热门
+                            </a>
                         </li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#message1">消息</a>
                         </li>

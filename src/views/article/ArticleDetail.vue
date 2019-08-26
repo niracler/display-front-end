@@ -41,7 +41,7 @@
         <TimeLine></TimeLine>
 
         <!-- Comments Form -->
-        <ArticleComment></ArticleComment>
+        <ArticleComment :article="id"></ArticleComment>
 
     </div>
 </template>
@@ -64,20 +64,9 @@
                 user: '',
                 comment: '',
                 article: '不是我的错',
-                list: [
-                    {id: 1, user: '李一白', comment: '窗前明月光'},
-                    {id: 2, user: '李二白', comment: '疑是地上霜'},
-                    {id: 3, user: '李三白', comment: '举头望明月'},
-                    {id: 4, user: '李四白', comment: '低头思故乡'},
-                ]
-
             }
         },
         methods: {
-            postComment() {
-                var comment = {id: Date.now(), user: this.user, comment: this.comment};
-                this.list.push(comment)
-            },
             getDetail() {
                 if (this.$route.params.id) {
                     this.id = this.$route.params.id;

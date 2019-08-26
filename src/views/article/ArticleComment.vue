@@ -5,7 +5,18 @@
             <div class="card-body">
                 <form action="#" class="form-profile">
                     <div class="form-group">
-                        <textarea class="form-control" name="textarea" id="textarea" cols="30" rows="2" placeholder="Post a new message"></textarea>
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea class="form-control" name="textarea" id="textarea" cols="30" rows="6"
+                                  placeholder="Post a new message">
+                        </textarea>
                     </div>
                     <div class="d-flex align-items-center">
                         <ul class="mb-0 form-profile__icons">
@@ -29,11 +40,12 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <div class="media media-reply">
-                    <img class="mr-3 circle-rounded" src="/images/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
+                <div class="media media-reply" v-for="comment in comments" :key='comment.id'>
+                    <img class="mr-3 circle-rounded" src="/images/avatar/2.jpg" width="50" height="50"
+                         alt="Generic placeholder image">
                     <div class="media-body">
                         <div class="d-sm-flex justify-content-between mb-2">
-                            <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+                            <h5 class="mb-sm-0">{{ comment.name }} <small class="text-muted ml-3">{{ comment.created }}</small></h5>
                             <div class="media-reply__link">
                                 <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
                                 <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
@@ -41,61 +53,50 @@
                             </div>
                         </div>
 
-                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                        <p>{{ comment.body }}</p>
                         <ul>
-                            <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/images/blog/2.jpg" alt=""></li>
-                            <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/images/blog/3.jpg" alt=""></li>
-                            <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/images/blog/4.jpg" alt=""></li>
-                            <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/images/blog/1.jpg" alt=""></li>
+                            <li class="d-inline-block"><img class="rounded" width="60" height="60"
+                                                            src="/images/blog/2.jpg" alt=""></li>
+                            <li class="d-inline-block"><img class="rounded" width="60" height="60"
+                                                            src="/images/blog/3.jpg" alt=""></li>
+                            <li class="d-inline-block"><img class="rounded" width="60" height="60"
+                                                            src="/images/blog/4.jpg" alt=""></li>
+                            <li class="d-inline-block"><img class="rounded" width="60" height="60"
+                                                            src="/images/blog/1.jpg" alt=""></li>
                         </ul>
 
-                        <div class="media mt-3">
-                            <img class="mr-3 circle-rounded circle-rounded" src="/images/avatar/4.jpg" width="50" height="50" alt="Generic placeholder image">
-                            <div class="media-body">
-                                <div class="d-sm-flex justify-content-between mb-2">
-                                    <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
-                                    <div class="media-reply__link">
-                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
-                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
-                                        <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
-                                    </div>
-                                </div>
-                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                            </div>
-                        </div>
+<!--                        <div class="media mt-3">-->
+<!--                            <img class="mr-3 circle-rounded circle-rounded" src="/images/avatar/4.jpg" width="50"-->
+<!--                                 height="50" alt="Generic placeholder image">-->
+<!--                            <div class="media-body">-->
+<!--                                <div class="d-sm-flex justify-content-between mb-2">-->
+<!--                                    <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days-->
+<!--                                        ago</small></h5>-->
+<!--                                    <div class="media-reply__link">-->
+<!--                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i>-->
+<!--                                        </button>-->
+<!--                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i>-->
+<!--                                        </button>-->
+<!--                                        <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+<!--                                    sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.-->
+<!--                                    Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in-->
+<!--                                    faucibus.</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                 </div>
-
-                <div class="media media-reply">
-                    <img class="mr-3 circle-rounded" src="/images/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
-                    <div class="media-body">
-                        <div class="d-sm-flex justify-content-between mb-2">
-                            <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
-                            <div class="media-reply__link">
-                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
-                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
-                                <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
-                            </div>
-                        </div>
-
-                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                    </div>
-                </div>
-
-                <div class="media media-reply">
-                    <img class="mr-3 circle-rounded" src="/images/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
-                    <div class="media-body">
-                        <div class="d-sm-flex justify-content-between mb-2">
-                            <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
-                            <div class="media-reply__link">
-                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
-                                <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
-                                <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
-                            </div>
-                        </div>
-
-                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                    </div>
+                <div class="bootstrap-pagination">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link"  @click="getComments(--page)">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link"  @click="getComments(++page)">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -103,8 +104,53 @@
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
-        name: "ArticleComment"
+        name: "ArticleComment",
+        data() {
+            return {
+                comments: null,
+                page:1,
+                pre: null,
+                next: null,
+                url: 'http://plrom.niracler.com:8000/api/comment/',
+            }
+        },
+        methods:{
+            getComments() {
+                axios
+                    .get(this.url, {
+                        params: {
+                            page: this.page,
+                            article: this.$route.params.id,
+                        }
+                    })
+                    .then(response => {
+                        if (response.status === 200) {
+                            this.comments = response.data.results;
+
+                            this.pre = response.data.previous;
+                            if (this.pre) {
+                                this.pre = '/comment?' + this.pre.split('?')[1];
+                            }
+
+                            this.next = response.data.next;
+                            if (this.next) {
+                                this.next = '/comment?' + this.next.split('?')[1];
+                            }
+                        } else {
+                            alert('获取数据失败！！！')
+                        }
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        self.console.log(error);
+                    });
+            },
+        },
+        created() {
+            this.getComments();
+        },
     }
 </script>
 
