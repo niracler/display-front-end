@@ -41,6 +41,7 @@
                             p: this.$route.query.p,
                             website_name: this.$route.query.website_name,
                             category: this.$route.query.category,
+                            tags: this.$route.query.tags,
                         }
                     })
                     .then(response => {

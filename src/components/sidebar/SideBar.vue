@@ -21,8 +21,22 @@
             <h5 class="card-header">Category</h5>
             <div class="card-body">
                 <div class=" bootstrap-label">
-                    <router-link class="p-1" :to="{name:'article', query:{ category:category.id }}" v-for="category in categories" :key='category.id'>
-                           <span :class="'label '+ label_colors[category.id%8]">{{ category.name }}</span>
+                    <router-link class="p-1" :to="{name:'article', query:{ category:category.id }}"
+                                 v-for="category in categories" :key='category.id'>
+                        <span :class="'label '+ label_colors[category.id%8]">{{ category.name }}</span>
+                    </router-link>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tags Widget -->
+        <div class="card">
+            <h5 class="card-header">Tags</h5>
+            <div class="card-body">
+                <div class=" bootstrap-label">
+                    <router-link class="p-1" :to="{name:'article', query:{ tags:tag.id }}"
+                                 v-for="tag in tags" :key='tag.id'>
+                        <span :class="'label '+ label_colors[tag.id%8]">{{ tag.name }}</span>
                     </router-link>
                 </div>
             </div>
@@ -47,6 +61,7 @@
         data() {
             return {
                 categories: null,
+                tags: null,
                 label_colors: [
                     "label-primary",
                     "label-secondary",
@@ -63,6 +78,17 @@
             axios
                 .get('http://plrom.niracler.com:8000/api/category/')
                 .then(response => (this.categories = response.data))
+                .catch(function (error) { // 请求失败处理
+                    self.console.log(error);
+                });
+            axios
+                .get('http://plrom.niracler.com:8000/api/tag/', {
+                        params: {
+                            ordering:'-num_times'
+                        }
+                    }
+                )
+                .then(response => (this.tags = response.data.results))
                 .catch(function (error) { // 请求失败处理
                     self.console.log(error);
                 });

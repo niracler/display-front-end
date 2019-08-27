@@ -212,6 +212,7 @@
 </template>
 
 <script>
+    import Chart from 'chart.js'
 
     export default {
         name: "Profile",
@@ -220,7 +221,7 @@
         },
         mounted() {
             var ctx1 = document.getElementById("lineChart");
-            var myChart1 = new Chart(ctx1, {
+            new Chart(ctx1, {
                 type: "line",
                 data: {
                     labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
