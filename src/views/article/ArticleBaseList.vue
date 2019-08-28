@@ -14,7 +14,7 @@
                 </router-link>
             </div>
             <div class="card-footer text-muted">
-                Posted on {{ article.publish_time | timeFormat }} by
+                Posted on {{ article.publish_time | dateStr }} by
                 <router-link :to="{name:'article', query:{ website_name:article.website_name }}">
                     {{ article.website_name }}
                 </router-link>
