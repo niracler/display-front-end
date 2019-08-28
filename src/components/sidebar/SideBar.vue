@@ -16,19 +16,6 @@
             </div>
         </div>
 
-        <!-- Categories Widget -->
-        <div class="card">
-            <h5 class="card-header">Category</h5>
-            <div class="card-body">
-                <div class=" bootstrap-label">
-                    <router-link class="p-1" :to="{name:'article', query:{ category:category.id }}"
-                                 v-for="category in categories" :key='category.id'>
-                        <span :class="'label '+ label_colors[category.id%8]">{{ category.name }}</span>
-                    </router-link>
-                </div>
-            </div>
-        </div>
-
         <!-- Tags Widget -->
         <div class="card">
             <h5 class="card-header">Tags</h5>
@@ -75,12 +62,6 @@
             }
         },
         mounted() {
-            axios
-                .get('http://plrom.niracler.com:8000/api/category/')
-                .then(response => (this.categories = response.data))
-                .catch(function (error) { // 请求失败处理
-                    self.console.log(error);
-                });
             axios
                 .get('http://plrom.niracler.com:8000/api/tag/', {
                         params: {
