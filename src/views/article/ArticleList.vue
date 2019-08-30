@@ -13,9 +13,9 @@
 </template>
 
 <script>
-    import axios from 'axios'
     import ArticleBaseList from "@/views/article/ArticleBaseList";
     import ArticlePagination from "@/views/article/ArticlePagination";
+    import {articleList} from "../../api"
 
     export default {
         name: "ArticleList",
@@ -26,57 +26,52 @@
         data() {
             return {
                 msg: '我们这里是一个游戏新闻资讯平台！！',
-                url: 'http://plrom.niracler.com:8000/api/article/',
                 articles: null,
                 pre: null,
                 next: null,
             }
         },
         methods: {
-            getAllList() {
-                // self.console.log(this.$route);
-                axios
-                    .get(this.url, {
-                        params: {
-                            p: this.$route.query.p,
-                            website_name: this.$route.query.website_name,
-                            category: this.$route.query.category,
-                            tags: this.$route.query.tags,
-                        }
-                    })
-                    .then(response => {
-                        if (response.status === 200) {
-                            this.articles = response.data.results;
+            getArticleList() {
+                articleList({
+                    params: {
+                        p: this.$route.query.p,
+                        website_name: this.$route.query.website_name,
+                        category: this.$route.query.category,
+                        tags: this.$route.query.tags,
+                    }
+                }).then(response => {
+                    if (response.status === 200) {
+                        this.articles = response.data.results;
 
-                            this.pre = response.data.previous;
-                            if (this.pre) {
-                                this.pre = '/article?' + this.pre.split('?')[1];
-                            }
-
-                            this.next = response.data.next;
-                            if (this.next) {
-                                this.next = '/article?' + this.next.split('?')[1];
-                            }
-                        } else {
-                            alert('获取数据失败！！！')
+                        this.pre = response.data.previous;
+                        if (this.pre) {
+                            this.pre = '/article/?' + this.pre.split('?')[1];
                         }
-                    })
-                    .catch(function (error) { // 请求失败处理
-                        self.console.log(error);
-                    });
+
+                        this.next = response.data.next;
+                        if (this.next) {
+                            this.next = '/article/?' + this.next.split('?')[1];
+                        }
+                    } else {
+                        alert('获取数据失败！！！')
+                    }
+                }).catch(function (error) { // 请求失败处理
+                    self.console.log(error);
+                });
             },
         },
         created() {
-            this.getAllList();
+            this.getArticleList();
         },
         watch: {
             $route() {
-                this.getAllList();
+                this.getArticleList();
             }
         }
     }
 </script>
 
 <style scoped>
-    
+
 </style>

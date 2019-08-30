@@ -47,9 +47,9 @@
 </template>
 
 <script>
-    import axios from 'axios'
     import ArticleComment from "@/views/article/ArticleComment";
     import TimeLine from "../../components/timeline/TimeLine";
+    import { articleDetail} from "../../api";
 
     export default {
         name: "ArticleDetail",
@@ -59,7 +59,6 @@
         },
         data() {
             return {
-                baseUrl: 'http://plrom.niracler.com:8000/api/article/?id=',
                 id: '',
                 user: '',
                 comment: '',
@@ -74,9 +73,7 @@
                     this.id = 1
                 }
 
-                var url = this.baseUrl + this.id;
-                axios
-                    .get(url)
+                articleDetail({params:{id:this.id}})
                     .then(response => {
                         if (response.status === 200) {
                             this.article = response.data.results[0];

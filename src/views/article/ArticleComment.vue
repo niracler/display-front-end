@@ -45,7 +45,8 @@
                          alt="Generic placeholder image">
                     <div class="media-body">
                         <div class="d-sm-flex justify-content-between mb-2">
-                            <h5 class="mb-sm-0">{{ comment.name }} <small class="text-muted ml-3">{{ comment.created }}</small></h5>
+                            <h5 class="mb-sm-0">{{ comment.name }} <small class="text-muted ml-3">{{ comment.created
+                                }}</small></h5>
                             <div class="media-reply__link">
                                 <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
                                 <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
@@ -65,35 +66,35 @@
                                                             src="/images/blog/1.jpg" alt=""></li>
                         </ul>
 
-<!--                        <div class="media mt-3">-->
-<!--                            <img class="mr-3 circle-rounded circle-rounded" src="/images/avatar/4.jpg" width="50"-->
-<!--                                 height="50" alt="Generic placeholder image">-->
-<!--                            <div class="media-body">-->
-<!--                                <div class="d-sm-flex justify-content-between mb-2">-->
-<!--                                    <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days-->
-<!--                                        ago</small></h5>-->
-<!--                                    <div class="media-reply__link">-->
-<!--                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i>-->
-<!--                                        </button>-->
-<!--                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i>-->
-<!--                                        </button>-->
-<!--                                        <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
-<!--                                    sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.-->
-<!--                                    Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in-->
-<!--                                    faucibus.</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <!--                        <div class="media mt-3">-->
+                        <!--                            <img class="mr-3 circle-rounded circle-rounded" src="/images/avatar/4.jpg" width="50"-->
+                        <!--                                 height="50" alt="Generic placeholder image">-->
+                        <!--                            <div class="media-body">-->
+                        <!--                                <div class="d-sm-flex justify-content-between mb-2">-->
+                        <!--                                    <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days-->
+                        <!--                                        ago</small></h5>-->
+                        <!--                                    <div class="media-reply__link">-->
+                        <!--                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i>-->
+                        <!--                                        </button>-->
+                        <!--                                        <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i>-->
+                        <!--                                        </button>-->
+                        <!--                                        <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>-->
+                        <!--                                    </div>-->
+                        <!--                                </div>-->
+                        <!--                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante-->
+                        <!--                                    sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.-->
+                        <!--                                    Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in-->
+                        <!--                                    faucibus.</p>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                     </div>
                 </div>
                 <div class="bootstrap-pagination">
                     <nav>
                         <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link"  @click="getComments(--page)">Previous</a>
+                            <li class="page-item"><a class="page-link" @click="getComments(--page)">Previous</a>
                             </li>
-                            <li class="page-item"><a class="page-link"  @click="getComments(++page)">Next</a>
+                            <li class="page-item"><a class="page-link" @click="getComments(++page)">Next</a>
                             </li>
                         </ul>
                     </nav>
@@ -104,48 +105,44 @@
 </template>
 
 <script>
-    import axios from "axios";
+    import {commentList} from "../../api";
 
     export default {
         name: "ArticleComment",
         data() {
             return {
                 comments: null,
-                page:1,
+                page: 1,
                 pre: null,
                 next: null,
-                url: 'http://plrom.niracler.com:8000/api/comment/',
             }
         },
-        methods:{
+        methods: {
             getComments() {
-                axios
-                    .get(this.url, {
-                        params: {
-                            page: this.page,
-                            article: this.$route.params.id,
-                        }
-                    })
-                    .then(response => {
-                        if (response.status === 200) {
-                            this.comments = response.data.results;
+                commentList({
+                    params: {
+                        page: this.page,
+                        article: this.$route.params.id,
+                    }
+                }).then(response => {
+                    if (response.status === 200) {
+                        this.comments = response.data.results;
 
-                            this.pre = response.data.previous;
-                            if (this.pre) {
-                                this.pre = '/comment?' + this.pre.split('?')[1];
-                            }
-
-                            this.next = response.data.next;
-                            if (this.next) {
-                                this.next = '/comment?' + this.next.split('?')[1];
-                            }
-                        } else {
-                            alert('获取数据失败！！！')
+                        this.pre = response.data.previous;
+                        if (this.pre) {
+                            this.pre = '/comment/?' + this.pre.split('?')[1];
                         }
-                    })
-                    .catch(function (error) { // 请求失败处理
-                        self.console.log(error);
-                    });
+
+                        this.next = response.data.next;
+                        if (this.next) {
+                            this.next = '/comment/?' + this.next.split('?')[1];
+                        }
+                    } else {
+                        alert('获取数据失败！！！')
+                    }
+                }).catch(function (error) { // 请求失败处理
+                    self.console.log(error);
+                });
             },
         },
         created() {

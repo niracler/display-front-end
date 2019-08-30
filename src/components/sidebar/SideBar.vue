@@ -37,9 +37,10 @@
                     <div class="media border-bottom-1 pt-3 pb-3" v-for="comment in comments" :key="comment.id">
                         <img width="35" src="/images/avatar/1.jpg" class="mr-3 rounded-circle">
                         <div class="media-body">
-                            <h5>{{ comment.name }}</h5>
+                            <h5>{{ comment.user.username }}</h5>
                             <p class="mb-0">{{ comment.body | msgFormat(20) }}</p>
-                        </div><span class="text-muted ">{{ comment.created | dateStr }}</span>
+                        </div>
+                        <span class="text-muted ">{{ comment.created | dateStr }}</span>
                     </div>
 
                     <div class="media pt-3 pb-3">
@@ -47,7 +48,8 @@
                         <div class="media-body">
                             <h5>Facebook Post 30 Comments</h5>
                             <p class="mb-0">I shared this on my fb wall a few months back,</p>
-                        </div><span class="text-muted ">April 24, 2018</span>
+                        </div>
+                        <span class="text-muted ">April 24, 2018</span>
                     </div>
                 </div>
             </div>
@@ -56,7 +58,7 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import {commentList, tagList} from "../../api";
 
     export default {
         name: "SideBar",
@@ -78,19 +80,12 @@
             }
         },
         mounted() {
-            axios
-                .get('http://plrom.niracler.com:8000/api/tag/', {
-                        params: {
-                            ordering:'-num_times'
-                        }
-                    }
-                )
+            tagList({params: {ordering: '-num_times'}})
                 .then(response => (this.tags = response.data.results))
                 .catch(function (error) { // 请求失败处理
                     self.console.log(error);
                 });
-            axios
-                .get('http://plrom.niracler.com:8000/api/comment/')
+            commentList()
                 .then(response => (this.comments = response.data.results))
                 .catch(function (error) { // 请求失败处理
                     self.console.log(error);
