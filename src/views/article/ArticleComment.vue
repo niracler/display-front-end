@@ -90,29 +90,7 @@
                     </div>
                 </div>
 
-                <div class="bootstrap-pagination">
-                    <nav>
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" @click="getComments(--page)">
-                                    Previous
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" @click="getComments(++page)">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                <Pagination v-on:go-page="goPage" :totalPage="totalPage"></Pagination>
 
             </div>
         </div>
@@ -121,15 +99,18 @@
 
 <script>
     import {commentList} from "../../api";
+    import Pagination from "../../components/pagination/Pagination";
 
     export default {
         name: "ArticleComment",
+        components: {
+            Pagination
+        },
         data() {
             return {
                 comments: null,
                 page: 1,
-                pre: null,
-                next: null,
+                totalPage: 1,
             }
         },
         methods: {
@@ -142,22 +123,18 @@
                 }).then(response => {
                     if (response.status === 200) {
                         this.comments = response.data.results;
-
-                        this.pre = response.data.previous;
-                        if (this.pre) {
-                            this.pre = '/comment/?' + this.pre.split('?')[1];
-                        }
-
-                        this.next = response.data.next;
-                        if (this.next) {
-                            this.next = '/comment/?' + this.next.split('?')[1];
-                        }
+                        this.totalPage = Math.ceil(response.data.count / 10); //计算真实的总页数
                     } else {
                         alert('获取数据失败！！！')
                     }
                 }).catch(function (error) { // 请求失败处理
                     self.console.log(error);
                 });
+            },
+            goPage(data) {
+                this.page = data.page;
+                this.getComments();
+                self.console.log(this.$route.params.id)
             },
         },
         created() {

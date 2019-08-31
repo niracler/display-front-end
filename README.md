@@ -43,3 +43,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [Bootstrap 4 Timeline](https://www.codeply.com/go/dI6CknFxts/bootstrap-4-timeline)
 - [vue 引入公共css文件](https://blog.csdn.net/Smartsunsing/article/details/78529374)
 - [Vue 使用 filter 过滤器格式化时间的两种方式](https://juejin.im/post/5d0f08e3f265da1b695d6873)
+- [vue技术帖－实现一款简单通用的翻页组件](https://segmentfault.com/a/1190000006911880#articleHeader1)

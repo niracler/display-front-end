@@ -1,30 +1,6 @@
 <template>
     <div id="article-pagination">
         <!-- Pagination -->
-        <ul class="pagination justify-content-center mb-4">
-            <li class="page-item">
-                <a class="page-link" :href="pre">
-                    &larr; Older
-                </a>
-            </li>
-
-            <li class="page-item">
-                <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">3</a>
-            </li>
-
-            <li class="page-item">
-                <a class="page-link" :href="next">
-                    Newer &rarr;
-                </a>
-            </li>
-        </ul>
-
         <ul class="pagination justify-content-center mb-4" v-if="totalPage > 0">
             <li class="page-item" v-show="currentPage > 1 && showPrev" @click="go(currentPage - 1)">
                 <a class="page-link">上一页</a>
@@ -70,10 +46,8 @@
 
 <script>
     export default {
-        name: "ArticlePagination",
+        name: "Pagination",
         props: {
-            next: String,
-            pre: String,
             totalPage: { // 总页数
                 type: Number,
                 default: 1,
@@ -124,7 +98,7 @@
                 this.currentPage = parseInt(page, 10);
                 this.$emit('go-page', {
                     page: this.currentPage
-                })
+                });
             },
         },
         watch: {
@@ -140,7 +114,6 @@
         },
         computed: {
             pages() {
-                self.console.log("hello3");
                 // 根据起始页码和结束页码得到页码数组
                 let getPages = (start, end) => {
                     if (start <= 1 || start > end || start >= this.totalPage) {
