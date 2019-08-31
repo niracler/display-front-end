@@ -89,16 +89,31 @@
                         <!--                        </div>-->
                     </div>
                 </div>
+
                 <div class="bootstrap-pagination">
                     <nav>
                         <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link" @click="getComments(--page)">Previous</a>
+                            <li class="page-item">
+                                <a class="page-link" @click="getComments(--page)">
+                                    Previous
+                                </a>
                             </li>
-                            <li class="page-item"><a class="page-link" @click="getComments(++page)">Next</a>
+                            <li class="page-item">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" @click="getComments(++page)">Next</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
+
             </div>
         </div>
     </div>

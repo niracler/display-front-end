@@ -7,7 +7,7 @@
         </h1>
 
         <ArticleBaseList :articles="articles"></ArticleBaseList>
-        <ArticlePagination :next="next" :pre="pre"></ArticlePagination>
+        <ArticlePagination :next="next" :pre="pre" :totalPage="totalPage"></ArticlePagination>
     </div>
 
 </template>
@@ -29,6 +29,7 @@
                 articles: null,
                 pre: null,
                 next: null,
+                totalPage: null
             }
         },
         methods: {
@@ -43,6 +44,9 @@
                 }).then(response => {
                     if (response.status === 200) {
                         this.articles = response.data.results;
+
+                        this.totalPage = Math.ceil(response.data.count / 10);
+                        self.console.log(this.totalPage);
 
                         this.pre = response.data.previous;
                         if (this.pre) {
