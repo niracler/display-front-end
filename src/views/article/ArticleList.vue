@@ -7,75 +7,67 @@
         </h1>
 
         <ArticleBaseList :articles="articles"></ArticleBaseList>
-        <ArticlePagination :next="next" :pre="pre"></ArticlePagination>
+        <Pagination v-on:go-page="goPage" :totalPage="totalPage"></Pagination>
     </div>
 
 </template>
 
 <script>
-    import axios from 'axios'
     import ArticleBaseList from "@/views/article/ArticleBaseList";
-    import ArticlePagination from "@/views/article/ArticlePagination";
+    import Pagination from "../../components/pagination/Pagination";
+    import {articleList} from "../../api"
 
     export default {
         name: "ArticleList",
         components: {
             ArticleBaseList,
-            ArticlePagination
+            Pagination
         },
         data() {
             return {
                 msg: '我们这里是一个游戏新闻资讯平台！！',
-                url: 'http://plrom.niracler.com:8000/api/article/',
                 articles: null,
-                pre: null,
-                next: null,
+                totalPage: 1,
+                page:1,
             }
         },
         methods: {
-            getAllList() {
-                // self.console.log(this.$route);
-                axios
-                    .get(this.url, {
-                        params: {
-                            p: this.$route.query.p,
-                            website_name: this.$route.query.website_name,
-                            category: this.$route.query.category,
-                        }
-                    })
-                    .then(response => {
-                        if (response.status === 200) {
-                            this.articles = response.data.results;
+            getArticleList() {
+                articleList({
+                    params: {
+                        p: this.page,
+                        website_name: this.$route.query.website_name,
+                        category: this.$route.query.category,
+                        tags: this.$route.query.tags,
+                    }
+                }).then(response => {
+                    if (response.status === 200) {
+                        this.articles = response.data.results;
 
-                            this.pre = response.data.previous;
-                            if (this.pre) {
-                                this.pre = '/article?' + this.pre.split('?')[1];
-                            }
-
-                            this.next = response.data.next;
-                            if (this.next) {
-                                this.next = '/article?' + this.next.split('?')[1];
-                            }
-                        } else {
-                            alert('获取数据失败！！！')
-                        }
-                    })
-                    .catch(function (error) { // 请求失败处理
-                        self.console.log(error);
-                    });
+                        this.totalPage = Math.ceil(response.data.count / 10); //计算真实的总页数
+                    } else {
+                        alert('获取数据失败！！！')
+                    }
+                }).catch(function (error) { // 请求失败处理
+                    self.console.log(error);
+                });
+            },
+            goPage(data) {
+                this.page = data.page;
+                this.getArticleList();
             },
         },
         created() {
-            this.getAllList();
+            this.getArticleList();
         },
         watch: {
             $route() {
-                this.getAllList();
+                this.getArticleList();
             }
         }
     }
 </script>
 
 <style scoped>
-    
+
 </style>

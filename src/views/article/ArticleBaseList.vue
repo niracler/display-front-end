@@ -14,12 +14,14 @@
                 </router-link>
             </div>
             <div class="card-footer text-muted">
-                Posted on {{ article.publish_time | timeFormat }} by
+                Posted on {{ article.publish_time | dateStr }} by
                 <router-link :to="{name:'article', query:{ website_name:article.website_name }}">
                     {{ article.website_name }}
                 </router-link>
-                <router-link class="card-link float-right" :to="{name:'article', query:{ category:article.category.id }}">
-                    <span :class="'label '+ label_colors[article.category.id%8]">{{ article.category.name }}</span>
+
+                <router-link class="p-1 float-right" :to="{name:'article', query:{ tags:tag.id }}"
+                             v-for="tag in article.tags" :key='tag.id'>
+                    <span :class="'label '+ label_colors[tag.id%8]">{{ tag.name }}</span>
                 </router-link>
             </div>
         </div>

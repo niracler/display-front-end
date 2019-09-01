@@ -65,7 +65,7 @@
             //pie chart
             var ctx2 = document.getElementById("pieChart");
             ctx2.height = 400;
-            var myChart2 = new Chart(ctx2, {
+            new Chart(ctx2, {
                 type: 'pie',
                 data: {
                     datasets: [{
@@ -97,7 +97,7 @@
 
             var ctx3 = document.getElementById("radarChart");
             ctx3.height = 500;
-            var myChart3 = new Chart(ctx3, {
+            new Chart(ctx3, {
                 type: 'radar',
                 data: {
                     labels: [["Eating", "Dinner"], ["Drinking", "Water"], "Sleeping", ["Designing", "Graphics"], "Coding", "Cycling", "Running"],

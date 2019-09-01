@@ -8,6 +8,7 @@ import 'jquery/dist/jquery.js'
 import 'popper.js'
 import './assets/css/style.css'
 import 'chart.js/dist/Chart.bundle.min'
+import moment from 'moment/moment.js'
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
@@ -24,4 +25,8 @@ Vue.filter('msgFormat', function (msg, num = 150) {
         return msg.slice(0, num) + '...'
     }
     return msg
+});
+
+Vue.filter('dateStr',function(value, format='YYYY-MM-DD HH:mm:ss'){
+    return moment(value, format).fromNow();
 });
