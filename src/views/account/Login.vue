@@ -68,7 +68,7 @@
                     cookie.setCookie('token', response.data.token, 7);
                     //存储在store
                     // 更新store数据
-                    // that.$store.dispatch('setInfo');
+                    that.$store.dispatch('setInfo');
                     //跳转到首页页面
                     this.$router.push({name: 'article'})
                 }).catch(function (error) {
@@ -95,7 +95,7 @@
             cookie.delCookie('name');
             //重新触发store
             //更新store数据
-            // this.$store.dispatch('setInfo');
+            this.$store.dispatch('setInfo');
         }
     }
 </script>

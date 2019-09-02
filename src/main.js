@@ -3,6 +3,9 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 
+import store from './store/store.js';
+import './axios/'; //全局加载resource拦截器
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.js'
 import 'popper.js'
@@ -16,6 +19,7 @@ Vue.prototype.$http = axios;
 new Vue({
     render: h => h(App),
     router,
+    store,
 }).$mount('#app');
 
 //全局的过滤器

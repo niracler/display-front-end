@@ -60,12 +60,13 @@
 
 <script>
     import cookie from "../../assets/js/cookie";
+    import Chart from "chart.js"
 
     export default {
         name: "AccountSideBar",
         data(){
             return {
-                name:'test',
+                name:'查无此人',
             }
         },
         mounted() {
@@ -138,7 +139,10 @@
             });
         },
         created() {
-            this.name = cookie.getCookie('name');
+            var name = cookie.getCookie('name');
+            if (name){
+                this.name = cookie.getCookie('name');
+            }
             self.console.log(this.name)
         }
     }

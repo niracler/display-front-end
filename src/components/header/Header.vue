@@ -30,9 +30,14 @@
                             关于我们
                         </router-link>
                     </li>
+                    <li class="nav-item" v-show="!username">
+                        <router-link class="nav-link" exact-active-class="active" :to="{name:'login'}">
+                            登录
+                        </router-link>
+                    </li>
                 </ul>
             </div>
-            <div class="header-right">
+            <div class="header-right" v-show="username">
                 <ul class="clearfix">
                     <li class="icons dropdown">
                         <a href="javascript:void(0)" data-toggle="dropdown">
@@ -155,7 +160,8 @@
                             <div class="dropdown-content-body">
                                 <ul>
                                     <li>
-                                        <router-link :to="{name:'profile'}"><i class="icon-user"></i> <span>Profile</span></router-link>
+                                        <router-link :to="{name:'profile'}"><i class="icon-user"></i>
+                                            <span>Profile</span></router-link>
                                     </li>
                                     <li>
                                         <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span>
@@ -164,10 +170,14 @@
                                     </li>
                                     <hr class="my-2">
                                     <li>
-                                        <router-link :to="{name:'settings'}"><i class="icon-settings"></i> <span>Settings</span></router-link>
+                                        <router-link :to="{name:'settings'}"><i class="icon-settings"></i> <span>Settings</span>
+                                        </router-link>
                                     </li>
                                     <li>
-                                        <a href="#" @click="logout"><i class="icon-key"></i> <span>Logout</span></a>
+                                        <a href="" @click="logout">
+                                            <i class="icon-key"></i>
+                                            <span>Logout</span>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -180,12 +190,28 @@
 </template>
 
 <script>
+    import cookie from "../../assets/js/cookie";
+
     export default {
         name: "Header",
-        methods:{
-            logout(){
-
+        data() {
+            return {
+                username: "",
             }
+        },
+        methods: {
+            logout() {
+                //清除缓存
+                cookie.delCookie('token');
+                cookie.delCookie('name');
+                this.username = ""
+                //重新触发store
+                //更新store数据
+                // this.$store.dispatch('setInfo');
+            }
+        },
+        created() {
+            this.username = cookie.getCookie('name')
         }
     }
 </script>
