@@ -166,7 +166,9 @@
                                     <li>
                                         <router-link :to="{name:'settings'}"><i class="icon-settings"></i> <span>Settings</span></router-link>
                                     </li>
-                                    <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    <li>
+                                        <a href="#" @click="logout"><i class="icon-key"></i> <span>Logout</span></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -179,7 +181,12 @@
 
 <script>
     export default {
-        name: "Header"
+        name: "Header",
+        methods:{
+            logout(){
+
+            }
+        }
     }
 </script>
 
