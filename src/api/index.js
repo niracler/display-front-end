@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-export const host = 'http://plrom.niracler.com:8000';
 export const testHost = 'http://plrom.niracler.com:8002';
+export const proHost = 'http://plrom.niracler.com:8000';
+export const host = proHost;
 
 //获取登录后的token
 export const login = params => {
-    return axios.post(`${testHost}/login/`, params)
+    return axios.post(`${host}/login/`, params)
 };
 
 //获取文章列表信息
@@ -25,5 +26,5 @@ export const commentList = params => {
 
 //获取常见标签列表
 export const tagList = params => {
-    return axios.get(`${testHost}/api/tag/`, params)
+    return axios.get(`${host}/api/tag/`, params)
 };

@@ -174,10 +174,10 @@
                                         </router-link>
                                     </li>
                                     <li>
-                                        <a href="" @click="logout">
+                                        <router-link :to="{name:'root'}">
                                             <i class="icon-key"></i>
-                                            <span>Logout</span>
-                                        </a>
+                                            <span @click="logout">Logout</span>
+                                        </router-link>
                                     </li>
                                 </ul>
                             </div>
