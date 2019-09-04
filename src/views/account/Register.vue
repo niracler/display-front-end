@@ -38,7 +38,7 @@
                                                v-model="password_c" placeholder="确认密码" required>
                                         <div class="alert-danger alert" v-show="error.password">{{error.password}}</div>
                                     </div>
-                                    <button class="btn login-form__btn submit w-100" @click="isRegister">注册并登录</button>
+                                    <input class="btn login-form__btn submit w-100" @click="isRegister" value="注册并登录">
                                 </form>
                                 <p class="mt-5 login-form__footer">Have account
                                     <router-link class="text-primary" :to="{name:'login'}">
@@ -86,6 +86,7 @@
                     mobile: that.mobile,
                     code: that.code,
                 }).then((response) => {
+                    self.console.log(response)
                     cookie.setCookie('name', response.data.username, 7);
                     cookie.setCookie('token', response.data.token, 7);
                     //存储在store
