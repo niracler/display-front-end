@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const testHost = 'http://plrom.niracler.com:8002';
 export const proHost = 'http://plrom.niracler.com:8000';
-export const host = proHost;
+export const host = testHost;
 
 //获取登录后的token
 export const login = params => {
@@ -27,4 +27,14 @@ export const commentList = params => {
 //获取常见标签列表
 export const tagList = params => {
     return axios.get(`${host}/api/tag/`, params)
+};
+
+//获取验证码
+export const code = params => {
+    return axios.post(`${host}/api/code/`, params)
+};
+
+//注册
+export const register = params => {
+    return axios.post(`${host}/api/register/`, params)
 };

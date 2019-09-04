@@ -32,7 +32,7 @@
                     </li>
                     <li class="nav-item" v-show="!username">
                         <router-link class="nav-link" exact-active-class="active" :to="{name:'login'}">
-                            登录
+                            登录/注册
                         </router-link>
                     </li>
                 </ul>
