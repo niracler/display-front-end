@@ -20,6 +20,7 @@
     "font-awesome": "^4.7.0",
     "html5shiv": "^3.7.3",
     "jquery": "^3.4.1",
+    "metismenu": "^3.0.4",
     "moment": "^2.24.0",
     "popper.js": "^1.15.0",
     "respond.js": "^1.4.2",

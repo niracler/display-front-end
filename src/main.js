@@ -5,13 +5,13 @@ import axios from 'axios'
 
 import store from './store/store.js';
 import './axios/'; //全局加载resource拦截器
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'popper.js'
 import './assets/css/style.css'
 import 'chart.js/dist/Chart.bundle.min'
 import moment from 'moment/moment.js'
+
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;

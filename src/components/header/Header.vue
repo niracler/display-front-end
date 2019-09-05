@@ -26,6 +26,14 @@
                         <a class="nav-link" href="http://plrom.niracler.com:5000">爬虫监控</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="https://jupyter.dgutdev.ml/tree/work/analysis">数据分析</a>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" exact-active-class="active" :to="{name:'dashboard'}">
+                            标签筛选
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link class="nav-link" exact-active-class="active" :to="{name:'about'}">
                             关于我们
                         </router-link>
@@ -37,6 +45,8 @@
                     </li>
                 </ul>
             </div>
+
+            <!-- 登录后的-->
             <div class="header-right" v-show="username">
                 <ul class="clearfix">
                     <li class="icons dropdown">

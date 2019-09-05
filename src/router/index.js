@@ -10,12 +10,19 @@ import Profile from "../views/account/Profile";
 import SideBar from "../components/sidebar/SideBar";
 import AccountSideBar from "../views/account/AccountSideBar";
 import Settings from "../views/account/Settings";
+import DashboardLayout from "../layout/DashboardLayout";
 
 Vue.use(Router);
 
 export default new Router({
     mode: 'history',
     routes: [
+        {
+            //真正的后台
+            path: '/dashboard',
+            name: 'dashboard',
+            component: DashboardLayout
+        },
         {
             //登录
             path: '/login',
