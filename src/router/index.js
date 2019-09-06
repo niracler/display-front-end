@@ -11,6 +11,8 @@ import SideBar from "../components/sidebar/SideBar";
 import AccountSideBar from "../views/account/AccountSideBar";
 import Settings from "../views/account/Settings";
 import DashboardLayout from "../layout/DashboardLayout";
+import Tag from "../views/tag/Tag";
+import Monitor from "../views/monitor/Monitor";
 
 Vue.use(Router);
 
@@ -21,7 +23,24 @@ export default new Router({
             //真正的后台
             path: '/dashboard',
             name: 'dashboard',
-            component: DashboardLayout
+            redirect: '/dashboard/tag',
+            component: DashboardLayout,
+            children:[
+                {
+                    path: 'tag',
+                    name: 'tag',
+                    components: {
+                        main: Tag,
+                    }
+                },
+                {
+                    path: 'monitor',
+                    name: 'monitor',
+                    components: {
+                        main: Monitor,
+                    }
+                },
+            ]
         },
         {
             //登录
