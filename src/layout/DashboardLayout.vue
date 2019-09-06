@@ -61,30 +61,57 @@
             <div class="nk-nav-scroll">
                 <ul class="accordion metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
-                    <li id="headingOne">
-                        <a class="has-arrow" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                           aria-controls="collapseOne">
+                    <li id="headingDatabase">
+                        <a class="has-arrow" data-toggle="collapse" data-target="#collapseDatabase" aria-expanded="false"
+                           aria-controls="collapseDatabase">
                             <i class="icon-speedometer menu-icon"></i>
-                            <span class="nav-text">Dashboard</span>
+                            <span class="nav-text">数据库监控</span>
                         </a>
-                        <ul id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#menu">
+                        <ul id="collapseDatabase" class="collapse" aria-labelledby="headingDatabase" data-parent="#menu">
                             <li>
-                                <router-link :to="{name:'tag'}">标签筛选</router-link>
+                                <router-link :to="{name:'monitor'}">mongodb</router-link>
                             </li>
                             <li>
-                                <router-link :to="{name:'monitor'}">监控</router-link>
+                                <router-link :to="{name:'monitor'}">mysql</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name:'monitor'}">redis</router-link>
                             </li>
                         </ul>
                     </li>
-                    <li id="headingTwo">
-                        <a class="has-arrow" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                           aria-controls="collapseTwo">
+                    <li id="headingSpider">
+                        <a class="has-arrow" data-toggle="collapse" data-target="#collapseSpider" aria-expanded="false"
+                           aria-controls="collapseSpider">
                             <i class="icon-speedometer menu-icon"></i>
-                            <span class="nav-text">Dashboard</span>
+                            <span class="nav-text">爬虫集群</span>
                         </a>
-                        <ul id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#menu">
+                        <ul id="collapseSpider" class="collapse" aria-labelledby="headingSpider" data-parent="#menu">
                             <li>
-                                <router-link :to="{name:'monitor'}">监控</router-link>
+                                <router-link :to="{name:'monitor'}">mongodb</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name:'monitor'}">mysql</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name:'monitor'}">redis</router-link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="headingTag">
+                        <a class="has-arrow" data-toggle="collapse" data-target="#collapseTag" aria-expanded="false"
+                           aria-controls="collapseTag">
+                            <i class="icon-speedometer menu-icon"></i>
+                            <span class="nav-text">标签</span>
+                        </a>
+                        <ul id="collapseTag" class="collapse" aria-labelledby="headingTag" data-parent="#menu">
+                            <li>
+                                <router-link :to="{name:'monitor'}">标签筛选</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name:'monitor'}">mysql</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name:'monitor'}">redis</router-link>
                             </li>
                         </ul>
                     </li>

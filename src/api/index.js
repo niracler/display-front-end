@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const testHost = 'http://plrom.niracler.com:8002';
 export const proHost = 'http://plrom.niracler.com:8000';
-export const host = testHost;
+export const host = proHost;
 
 //获取登录后的token
 export const login = params => {
