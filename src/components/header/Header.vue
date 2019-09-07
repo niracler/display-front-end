@@ -17,10 +17,13 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://plrom.niracler.com:8000/api">API接口</a>
+                        <a class="nav-link" :href="host + '/api'">API接口</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://plrom.niracler.com:8000/admin">后台管理</a>
+                        <a class="nav-link" :href="flaskHost + '/swagger'">API接口2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" :href="host + '/admin'">后台管理</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://plrom.niracler.com:5000">爬虫监控</a>
@@ -49,10 +52,17 @@
 </template>
 
 <script>
+    import {host, flaskHost} from "../../api";
     import HeaderRight from "./HeaderRight";
 
     export default {
         name: "Header",
+        data() {
+            return {
+                'host': host,
+                'flaskHost' : flaskHost
+            }
+        },
         components: {HeaderRight},
     }
 </script>

@@ -31,7 +31,6 @@ jQuery(window).on("load", function () {
         if (win_h > 0 ? win_h : screen.height) {
             $(".content-body").css("min-height", (win_h + 60) + "px");
         }
-        ;
     });
 
 
