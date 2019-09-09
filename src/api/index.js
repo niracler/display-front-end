@@ -5,6 +5,16 @@ export const testHost = 'http://plrom.niracler.com:8002';
 export const proHost = 'http://plrom.niracler.com:8000';
 export const host = proHost;
 
+//获取redis信息
+export const redisInfo = params => {
+    return axios.get(`${flaskHost}/api/redis`, params)
+};
+
+//获取mongodb信息
+export const mongoInfo = params => {
+    return axios.get(`${flaskHost}/api/mongo`, params)
+};
+
 //获取登录后的token
 export const login = params => {
     return axios.post(`${host}/login/`, params)

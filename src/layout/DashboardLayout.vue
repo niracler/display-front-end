@@ -105,7 +105,7 @@
                         </a>
                         <ul id="collapseTag" class="collapse" aria-labelledby="headingTag" data-parent="#menu">
                             <li>
-                                <router-link :to="{name:'monitor'}">标签筛选</router-link>
+                                <router-link :to="{name:'tag'}">标签筛选</router-link>
                             </li>
                             <li>
                                 <router-link :to="{name:'monitor'}">mysql</router-link>
