@@ -13,6 +13,8 @@ import Settings from "../views/account/Settings";
 import DashboardLayout from "../layout/DashboardLayout";
 import Tag from "../views/tag/Tag";
 import Monitor from "../views/monitor/Monitor";
+import RedisMonitor from "../views/monitor/RedisMonitor";
+import Entity from "../views/monitor/Entity";
 
 Vue.use(Router);
 
@@ -38,6 +40,20 @@ export default new Router({
                     name: 'monitor',
                     components: {
                         main: Monitor,
+                    }
+                },
+                {
+                    path: 'redis',
+                    name: 'redis',
+                    components: {
+                        main: RedisMonitor,
+                    }
+                },
+                {
+                    path: 'entity',
+                    name: 'entity',
+                    components: {
+                        main: Entity,
                     }
                 },
             ]

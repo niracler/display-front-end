@@ -72,10 +72,10 @@
                                 <router-link :to="{name:'monitor'}">mongodb</router-link>
                             </li>
                             <li>
-                                <router-link :to="{name:'monitor'}">mysql</router-link>
+                                <router-link :to="{name:'entity'}">实体对象</router-link>
                             </li>
                             <li>
-                                <router-link :to="{name:'monitor'}">redis</router-link>
+                                <router-link :to="{name:'redis'}">redis</router-link>
                             </li>
                         </ul>
                     </li>
@@ -106,12 +106,6 @@
                         <ul id="collapseTag" class="collapse" aria-labelledby="headingTag" data-parent="#menu">
                             <li>
                                 <router-link :to="{name:'tag'}">标签筛选</router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{name:'monitor'}">mysql</router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{name:'monitor'}">redis</router-link>
                             </li>
                         </ul>
                     </li>
