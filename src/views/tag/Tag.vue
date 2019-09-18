@@ -28,15 +28,64 @@
                                         <tr v-for="article in articles" :key="article.id">
                                             <th>{{article.id}}</th>
                                             <td>{{article.title}}</td>
-                                            <td>{{ article.content | msgFormat(50) }}</td>
                                             <td>
-                                                <router-link class="p-1" :to="{name:'article', query:{ tags:tag.id }}"
-                                                             v-for="tag in article.tags" :key='tag.id'>
+                                                <a data-toggle="modal" :data-target="'#model-content-'+article.id">
+                                                    {{article.content | msgFormat(50) }}
+                                                </a>
+                                            </td>
+                                            <td data-toggle="modal" :data-target="'#model-tag-'+article.id">
+                                                <a class="p-1" v-for="tag in article.tags" :key='tag.id'>
                                                     <span :class="'label '+ label_colors[tag.id%8]">{{ tag.name }}</span>
-                                                </router-link>
+                                                </a>
                                             </td>
                                             <td>{{ article.publish_time | dateStr }}</td>
-                                            <td class="color-primary">$21.56</td>
+                                            <td class="color-primary">
+                                                <span>{{ article.status }}</span>
+                                            </td>
+                                            <div class="modal fade" :id="'model-content-'+article.id">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">{{ article.title }}</h5>
+                                                            <button type="button" class="close" data-dismiss="modal">
+                                                                <span>&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>{{ article.content }}</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                            <button type="button" class="btn btn-primary">Save changes
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" :id="'model-tag-'+article.id">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">{{ article.title }}</h5>
+                                                            <button type="button" class="close" data-dismiss="modal">
+                                                                <span>&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>{{ article.content }}</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                            <button type="button" class="btn btn-primary">Save changes
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </tr>
                                         </tbody>
                                     </table>
