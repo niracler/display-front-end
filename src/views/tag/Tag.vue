@@ -74,9 +74,16 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>{{ article.content }}</p>
+                                                            <TagsInput :tags.sync="article.tags"></TagsInput>
                                                         </div>
+                                                        <hr>
+                                                        <div class="modal-body">
+                                                            <h5>候选标签</h5>
+                                                            <HotTags></HotTags>
+                                                        </div>
+
                                                         <div class="modal-footer">
+
                                                             <button type="button" class="btn btn-secondary"
                                                                     data-dismiss="modal">Close
                                                             </button>
@@ -103,26 +110,19 @@
 <script>
     import {articleList} from "../../api";
     import Pagination from "../../components/pagination/Pagination";
+    import TagsInput from "../../components/tags/TagsInput";
+    import HotTags from "../../components/tags/HotTags";
+    import {label_colors} from "../../main";
 
     export default {
         name: "Tag",
-        components: {Pagination},
+        components: {HotTags, TagsInput, Pagination},
         data() {
             return {
-                msg: '我们这里是一个游戏新闻资讯平台！！',
                 articles: null,
                 totalPage: 1,
                 page: 1,
-                label_colors: [
-                    "label-primary",
-                    "label-secondary",
-                    "label-success",
-                    "label-danger",
-                    "label-warning",
-                    "label-info",
-                    "label-light",
-                    "label-dark",
-                ],
+                label_colors: label_colors
             }
         },
         methods: {

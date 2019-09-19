@@ -16,6 +16,18 @@ import moment from 'moment/moment.js'
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 
+
+export const label_colors = [
+    "label-primary",
+    "label-secondary",
+    "label-success",
+    "label-danger",
+    "label-warning",
+    "label-info",
+    "label-light",
+    "label-dark",
+];
+
 new Vue({
     render: h => h(App),
     router,

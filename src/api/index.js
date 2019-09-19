@@ -3,7 +3,7 @@ import axios from 'axios';
 export const flaskHost = 'http://plrom.niracler.com:5555';
 export const testHost = 'http://plrom.niracler.com:8002';
 export const proHost = 'http://plrom.niracler.com:8000';
-export const host = proHost;
+export const host = testHost;
 
 //获取游戏实体信息
 export const entityInfo = params => {
