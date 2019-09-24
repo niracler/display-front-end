@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-3" v-for="entity in entities" :key="entity._id">
                         <div class="card">
-                            <img class="img-fluid" :src="host + entity.img_path" alt="">
+                            <img class="img-fluid" :src="proHost + entity.img_path" alt="">
                             <div class="card-body">
                                 <h5 class="card-title">{{ entity.name }}</h5>
                                 <p class="card-text">This is a wider card with supporting text and below as a
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-    import {entityInfo, host} from "../../api";
+    import {entityInfo, proHost, host} from "../../api";
     import Pagination from "../../components/pagination/Pagination";
 
     export default {
@@ -42,6 +42,7 @@
             return {
                 entities: null,
                 host: host,
+                proHost: proHost,
                 totalPage: 1,
                 page: 1,
             }
