@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts-alpine as build-stage
 
 # install simple http server for serving static content
 RUN npm install -g http-server
@@ -18,5 +18,16 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-EXPOSE 8080
-CMD [ "http-server", "dist" ]
+# 关于nginx的配置
+FROM nginx:alpine
+
+COPY --from=build-stage /app/dist /usr/share/nginx/html/dist
+
+RUN rm /etc/nginx/conf.d/default.conf
+ADD ./nginx/nginx.conf  /etc/nginx/conf.d/
+
+EXPOSE 80
+
+WORKDIR /etc/nginx
+
+CMD ["nginx", "-g", "daemon off;"]

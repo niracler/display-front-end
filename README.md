@@ -2,6 +2,13 @@
 
 游戏资讯平台前端部分
 
+## 在启动这个项目前
+
+要先启动各个地方的接口
+
+[ghost-of-fantasy/display-back-end](https://github.com/ghost-of-fantasy/display-back-end)
+[ghost-of-fantasy/monitor](https://github.com/ghost-of-fantasy/monitor)
+
 ## Project setup
 ```shell script
 npm install
