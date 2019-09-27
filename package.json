@@ -1,6 +1,6 @@
 {
   "name": "gamenews",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -11,20 +11,22 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/vue-fontawesome": "^0.1.6",
+    "@voerro/vue-tagsinput": "^2.0.2",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "common": "^0.2.5",
     "core-js": "^2.6.5",
-    "echarts": "^4.2.1",
     "font-awesome": "^4.7.0",
     "html5shiv": "^3.7.3",
     "jquery": "^3.4.1",
+    "metismenu": "^3.0.4",
     "moment": "^2.24.0",
     "popper.js": "^1.15.0",
     "respond.js": "^1.4.2",
     "vue": "^2.6.10",
-    "vue-router": "^3.1.2"
+    "vue-router": "^3.1.2",
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",

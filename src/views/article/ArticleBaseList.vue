@@ -1,18 +1,48 @@
 <template>
-    <div id="article-base-list">
+    <div class="accordion" id="article-base-list">
 
         <!-- Blog Post -->
         <div class="card mb-4" v-for="article in articles" :key='article.id'>
+
             <div class="card-body">
-                <h2 class="card-title">{{ article.title }}</h2>
+
+                <h2 class="card-title collapsed" :id="'heading'+article.id"
+                    data-toggle="collapse"
+                    :data-target="'#collapse'+article.id"
+                    aria-expanded="false"
+                    :aria-controls="'collapse'+article.id">
+                    {{ article.title }}
+                </h2>
+
                 <p class="card-text">
                     {{ article.content | msgFormat }}
                 </p>
-                <router-link :to="{ name:'detail', params:{ id:article.id, name:article.title } }"
-                             class="btn btn-primary">
-                    Read More &rarr;
-                </router-link>
+
+                <!--  隐藏的部分 -->
+                <div :id="'collapse'+article.id" class="collapse" :aria-labelledby="'heading'+article.id"
+                     data-parent="#article-base-list">
+                    <div class="container py-2">
+
+                        <div class="card-title">
+                            <h4>Latest News</h4>
+                        </div>
+
+                        <ul>
+                            <li>hello8ashdcoaschiopasch</li>
+                            <li>hello8ashdcoaschiopasch</li>
+                            <li>hello8ashdcoaschiopasch</li>
+                            <li>hello8ashdcoaschiopasch</li>
+                            <li>hello8ashdcoaschiopasch</li>
+                            <li>hello8ashdcoaschiopasch</li>
+                        </ul>
+
+                    </div>
+                    <a class="btn btn-primary" :href="article.url">
+                        原文 &rarr;
+                    </a>
+                </div>
             </div>
+
             <div class="card-footer text-muted">
                 Posted on {{ article.publish_time | dateStr }} by
                 <router-link :to="{name:'article', query:{ website_name:article.website_name }}">

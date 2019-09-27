@@ -3,19 +3,35 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import store from './store/store.js';
+import './axios/'; //全局加载resource拦截器
 import 'jquery/dist/jquery.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'popper.js'
 import './assets/css/style.css'
 import 'chart.js/dist/Chart.bundle.min'
 import moment from 'moment/moment.js'
 
+
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
+
+
+export const label_colors = [
+    "label-primary",
+    "label-secondary",
+    "label-success",
+    "label-danger",
+    "label-warning",
+    "label-info",
+    "label-light",
+    "label-dark",
+];
 
 new Vue({
     render: h => h(App),
     router,
+    store,
 }).$mount('#app');
 
 //全局的过滤器

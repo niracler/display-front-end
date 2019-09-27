@@ -2,7 +2,30 @@
 
 游戏资讯平台前端部分
 
-## Project setup
+## 效果图
+
+![](docs/img/Screenshot_20190927_102817.png)
+
+
+## 在启动这个项目前
+
+要先启动各个地方的接口
+
+- [ghost-of-fantasy/display-back-end](https://github.com/ghost-of-fantasy/display-back-end)
+- [ghost-of-fantasy/monitor](https://github.com/ghost-of-fantasy/monitor)
+
+修改接口host配置 [src/api/index.js](src/api/index.js)
+
+```javascript
+export const flaskHost = 'http://plrom.niracler.com:5555';
+export const testHost = 'http://plrom.niracler.com:8002';
+export const proHost = 'http://plrom.niracler.com:8000';
+export const host = proHost;
+```
+
+## 安装启动
+
+### Project setup
 ```shell script
 npm install
 ```
@@ -30,6 +53,10 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## 功能
+
+- 展示新闻文章
+
 ## 参考文章
 
 - [vue-cli3出现Invalid Host header的解决方案](https://blog.csdn.net/guzhao593/article/details/85918869)
@@ -44,3 +71,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [vue 引入公共css文件](https://blog.csdn.net/Smartsunsing/article/details/78529374)
 - [Vue 使用 filter 过滤器格式化时间的两种方式](https://juejin.im/post/5d0f08e3f265da1b695d6873)
 - [vue技术帖－实现一款简单通用的翻页组件](https://segmentfault.com/a/1190000006911880#articleHeader1)
+- [vue组件系列－Tags input](https://segmentfault.com/a/1190000005779273)
+- [Dockerize Vue.js App](https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html)

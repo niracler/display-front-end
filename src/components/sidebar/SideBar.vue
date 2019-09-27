@@ -20,12 +20,7 @@
         <div class="card">
             <h5 class="card-header">热门标签</h5>
             <div class="card-body">
-                <div class=" bootstrap-label">
-                    <router-link class="p-1" :to="{name:'article', query:{ tags:tag.id }}"
-                                 v-for="tag in tags" :key='tag.id'>
-                        <span :class="'label '+ label_colors[tag.id%8]">{{ tag.name }}</span>
-                    </router-link>
-                </div>
+                <HotTags></HotTags>
             </div>
         </div>
 
@@ -59,32 +54,19 @@
 
 <script>
     import {commentList, tagList} from "../../api";
+    import HotTags from "../tags/HotTags";
 
     export default {
         name: "SideBar",
+        components: {HotTags},
         data() {
             return {
                 categories: null,
                 comments: null,
-                tags: null,
-                label_colors: [
-                    "label-primary",
-                    "label-secondary",
-                    "label-success",
-                    "label-danger",
-                    "label-warning",
-                    "label-info",
-                    "label-light",
-                    "label-dark",
-                ],
+
             }
         },
         mounted() {
-            tagList({params: {ordering: '-num_times'}})
-                .then(response => (this.tags = response.data.results))
-                .catch(function (error) { // 请求失败处理
-                    self.console.log(error);
-                });
             commentList()
                 .then(response => (this.comments = response.data.results))
                 .catch(function (error) { // 请求失败处理

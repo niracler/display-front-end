@@ -5,7 +5,7 @@
                 <div class="media align-items-center mb-4">
                     <img class="mr-3" src="/images/avatar/11.png" width="80" height="80" alt="">
                     <div class="media-body">
-                        <h3 class="mb-0">Pikamy Cha</h3>
+                        <h3 class="mb-0">{{name}}</h3>
                         <p class="text-muted mb-0">Canada</p>
                     </div>
                 </div>
@@ -59,8 +59,16 @@
 </template>
 
 <script>
+    import cookie from "../../assets/js/cookie";
+    import Chart from "chart.js"
+
     export default {
         name: "AccountSideBar",
+        data(){
+            return {
+                name:'查无此人',
+            }
+        },
         mounted() {
             //pie chart
             var ctx2 = document.getElementById("pieChart");
@@ -129,6 +137,13 @@
                     }
                 }
             });
+        },
+        created() {
+            var name = cookie.getCookie('name');
+            if (name){
+                this.name = cookie.getCookie('name');
+            }
+            self.console.log(this.name)
         }
     }
 </script>
