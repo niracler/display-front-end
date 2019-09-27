@@ -2,14 +2,30 @@
 
 游戏资讯平台前端部分
 
+## 效果图
+
+![](docs/img/Screenshot_20190927_102817.png)
+
+
 ## 在启动这个项目前
 
 要先启动各个地方的接口
 
-[ghost-of-fantasy/display-back-end](https://github.com/ghost-of-fantasy/display-back-end)
-[ghost-of-fantasy/monitor](https://github.com/ghost-of-fantasy/monitor)
+- [ghost-of-fantasy/display-back-end](https://github.com/ghost-of-fantasy/display-back-end)
+- [ghost-of-fantasy/monitor](https://github.com/ghost-of-fantasy/monitor)
 
-## Project setup
+修改接口host配置 [src/api/index.js](src/api/index.js)
+
+```javascript
+export const flaskHost = 'http://plrom.niracler.com:5555';
+export const testHost = 'http://plrom.niracler.com:8002';
+export const proHost = 'http://plrom.niracler.com:8000';
+export const host = proHost;
+```
+
+## 安装启动
+
+### Project setup
 ```shell script
 npm install
 ```
@@ -36,6 +52,10 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## 功能
+
+- 展示新闻文章
 
 ## 参考文章
 
