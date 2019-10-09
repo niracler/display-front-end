@@ -11,6 +11,13 @@ import 'popper.js'
 import './assets/css/style.css'
 import 'chart.js/dist/Chart.bundle.min'
 import moment from 'moment/moment.js'
+import * as Sentry from '@sentry/browser';
+import * as Integrations from '@sentry/integrations';
+
+Sentry.init({
+    dsn: 'https://d57514dec9934399ba18f77a58959b92@sentry.io/1774579',
+    integrations: [new Integrations.Vue({Vue, attachProps: true})],
+});
 
 
 Vue.config.productionTip = false;
