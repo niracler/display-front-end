@@ -53,7 +53,7 @@
 </template>
 
 <script>
-    import {commentList, tagList} from "../../api";
+    import {commentList} from "../../api";
     import HotTags from "../tags/HotTags";
 
     export default {
