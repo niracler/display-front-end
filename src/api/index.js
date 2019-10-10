@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const flaskHost = 'http://plrom.niracler.com:5555';
-export const testHost = 'http://plrom.niracler.com:8002';
-export const proHost = 'http://plrom.niracler.com:8000';
+export const flaskHost = process.env.VUE_APP_FLASK_HOST;
+export const testHost = process.env.VUE_APP_TEST_HOST;
+export const proHost = process.env.VUE_APP_PRO_HOST;
 export const host = proHost;
 
 //获取游戏实体信息

@@ -15,7 +15,7 @@ import * as Sentry from '@sentry/browser';
 import * as Integrations from '@sentry/integrations';
 
 Sentry.init({
-    dsn: 'https://d57514dec9934399ba18f77a58959b92@sentry.io/1774579',
+    dsn: process.env.VUE_APP_DSN,
     integrations: [new Integrations.Vue({Vue, attachProps: true})],
 });
 
