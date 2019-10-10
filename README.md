@@ -14,13 +14,20 @@
 - [ghost-of-fantasy/display-back-end](https://github.com/ghost-of-fantasy/display-back-end)
 - [ghost-of-fantasy/monitor](https://github.com/ghost-of-fantasy/monitor)
 
-修改接口host配置 [src/api/index.js](src/api/index.js)
+修改接口.env配置 [src/api/index.js](src/api/index.js)
 
-```javascript
-export const flaskHost = 'http://plrom.niracler.com:5555';
-export const testHost = 'http://plrom.niracler.com:8002';
-export const proHost = 'http://plrom.niracler.com:8000';
-export const host = proHost;
+```
+VUE_APP_PRO_HOST='http://plrom.niracler.com:8000'
+VUE_APP_TEST_HOST='http://plrom.niracler.com:8002'
+VUE_APP_FLASK_HOST='http://plrom.niracler.com:5555'
+
+VUE_APP_DSN='***'
+```
+
+## 安装启动(docker)
+
+```shell script
+docker-compose build
 ```
 
 ## 安装启动
