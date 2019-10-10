@@ -1,12 +1,8 @@
 //引入vue
-import Vue from 'vue';
 import axios from 'axios';
 
 //全局状态控制引入
 import store from '../store/store';
-
-import * as types from '../store/mutation-types';
-import router from '../router'
 
 // http request 拦截器
 axios.interceptors.request.use(
@@ -34,12 +30,14 @@ axios.interceptors.response.use(
                 //  path: '/app/login',
                 //  query: {redirect: router.currentRoute.fullPath}
                 //})
-                console.log('未登录 或者token过期');
+                self.console.log('未登录 或者token过期');
+                break;
             case 403:
-                console.log('您没有该操作权限');
+                self.console.log('您没有该操作权限');
+                break;
             // alert('您没有该操作权限');
             case 500:
-                console.log('服务器错误');
+                self.console.log('服务器错误');
             // alert('服务器错误');
         }
         return Promise.reject(error.response.data)   // 返回接口返回的错误信息
