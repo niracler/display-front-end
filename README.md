@@ -80,4 +80,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [vue技术帖－实现一款简单通用的翻页组件](https://segmentfault.com/a/1190000006911880#articleHeader1)
 - [vue组件系列－Tags input](https://segmentfault.com/a/1190000005779273)
 - [Dockerize Vue.js App](https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html)
-- [Vue项目优化，减小打包体积](https://blog.csdn.net/qq_38948398/article/details/86539011)
+- [Vue项目优化，减小打包体积](https://blog.csdn.net/qq_38948398/article/details/86539011) 36s-18s
+- [vue-cli 开启 gzip](https://www.jianshu.com/p/d402c1f7b519) 18s-5s
+- [Nginx/Tengine服务器安装SSL证书](https://help.aliyun.com/knowledge_detail/95491.html)

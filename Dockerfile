@@ -25,8 +25,9 @@ COPY --from=build-stage /app/dist /usr/share/nginx/html/dist
 
 RUN rm /etc/nginx/conf.d/default.conf
 ADD ./nginx/nginx.conf  /etc/nginx/conf.d/
+ADD ./nginx/cert/ /etc/nginx/cert/
 
-EXPOSE 80
+EXPOSE 443
 
 WORKDIR /etc/nginx
 
