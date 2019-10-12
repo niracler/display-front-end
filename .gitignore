@@ -27,3 +27,6 @@ yarn-error.log*
 *.ipr
 *.iml
 *.iws
+
+nginx/cert/gamenews.key
+nginx/cert/gamenews.pem

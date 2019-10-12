@@ -82,3 +82,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [Dockerize Vue.js App](https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html)
 - [Vue项目优化，减小打包体积](https://blog.csdn.net/qq_38948398/article/details/86539011) 36s-18s
 - [vue-cli 开启 gzip](https://www.jianshu.com/p/d402c1f7b519) 18s-5s
+- [Nginx/Tengine服务器安装SSL证书](https://help.aliyun.com/knowledge_detail/95491.html)
