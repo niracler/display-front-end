@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const flaskHost = process.env.VUE_APP_FLASK_HOST;
-export const testHost = process.env.VUE_APP_TEST_HOST;
 export const proHost = process.env.VUE_APP_PRO_HOST;
 export const mediaHost = process.env.VUE_APP_MEDIA_HOST;
 export const host = proHost;
