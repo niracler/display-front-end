@@ -84,7 +84,7 @@
             }
         },
         mounted() {
-            var ctx1 = document.getElementById("mongo-line");
+            let ctx1 = document.getElementById("mongo-line");
             new Chart(ctx1, {
                 type: "line",
                 data: {
@@ -108,7 +108,7 @@
             });
 
             //pie chart
-            var ctx2 = document.getElementById("mongo-pie");
+            let ctx2 = document.getElementById("mongo-pie");
             ctx2.height = 400;
             new Chart(ctx2, {
                 type: 'pie',

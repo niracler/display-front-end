@@ -83,14 +83,13 @@
         //这里放的是局部的过滤器
         filters: {
             timeFormat: function (dateStr) {
-                var dt = new Date(dateStr);
-
-                var y = dt.getFullYear();
-                var m = dt.getMonth();
-                var d = dt.getDay();
-                var hh = dt.getHours();
-                var mm = dt.getMinutes();
-                var ss = dt.getSeconds();
+                let dt = new Date(dateStr);
+                let y = dt.getFullYear();
+                let m = dt.getMonth();
+                let d = dt.getDay();
+                let hh = dt.getHours();
+                let mm = dt.getMinutes();
+                let ss = dt.getSeconds();
 
                 return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
             }

@@ -24,7 +24,7 @@ export default {
     //             // 更新store数据
     //             state.goods_list.goods_list = response.data;
     //             console.log(response.data);
-    //             var totalPrice = 0;
+    //             let totalPrice = 0;
     //             response.data.forEach(function (entry) {
     //                 totalPrice += entry.goods.shop_price * entry.nums
     //             });

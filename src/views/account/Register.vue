@@ -79,7 +79,7 @@
         },
         methods: {
             isRegister() {
-                var that = this;
+                let that = this;
                 register({
                     password: that.password,
                     username: that.username,
@@ -102,9 +102,9 @@
                 });
             },
             seedMessage() {
-                var that = this;
+                let that = this;
                 //开启倒计时
-                var countdown = 60;
+                let countdown = 60;
                 settime();
 
                 function settime() {

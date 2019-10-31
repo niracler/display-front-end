@@ -56,7 +56,7 @@
         },
         methods: {
             login() {
-                var that = this;
+                let that = this;
                 login({
                     username: this.userName, //当前页码
                     password: this.parseWord
