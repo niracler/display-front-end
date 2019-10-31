@@ -71,7 +71,7 @@
         },
         mounted() {
             //pie chart
-            var ctx2 = document.getElementById("pieChart");
+            let ctx2 = document.getElementById("pieChart");
             ctx2.height = 400;
             new Chart(ctx2, {
                 type: 'pie',
@@ -103,7 +103,7 @@
                 }
             });
 
-            var ctx3 = document.getElementById("radarChart");
+            let ctx3 = document.getElementById("radarChart");
             ctx3.height = 500;
             new Chart(ctx3, {
                 type: 'radar',
@@ -139,7 +139,7 @@
             });
         },
         created() {
-            var name = cookie.getCookie('name');
+            let name = cookie.getCookie('name');
             if (name){
                 this.name = cookie.getCookie('name');
             }

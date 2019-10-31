@@ -220,7 +220,7 @@
 
         },
         mounted() {
-            var ctx1 = document.getElementById("lineChart");
+            let ctx1 = document.getElementById("lineChart");
             new Chart(ctx1, {
                 type: "line",
                 data: {
