@@ -126,6 +126,5 @@
 </script>
 
 <style scoped>
-    @import "/plugins/validation/jquery.validate.min.js";
-    @import "/plugins/validation/jquery.validate-init.js";
+
 </style>

@@ -1,5 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Layout from "../layout/Layout";
+import ArticleList from "../views/article/ArticleList";
+import About from "../views/about/About";
+import ArticleDetail from "../views/article/ArticleDetail";
+import Login from "../views/account/Login";
+import Register from "../views/account/Register";
+import Profile from "../views/account/Profile";
+import SideBar from "../components/sidebar/SideBar";
+import AccountSideBar from "../views/account/AccountSideBar";
+import Settings from "../views/account/Settings";
+import DashboardLayout from "../layout/DashboardLayout";
+import Tag from "../views/tag/Tag";
+import Monitor from "../views/monitor/Monitor";
+import RedisMonitor from "../views/monitor/RedisMonitor";
+import Entity from "../views/monitor/Entity";
 
 Vue.use(Router);
 
@@ -11,34 +26,34 @@ export default new Router({
             path: '/dashboard',
             name: 'dashboard',
             redirect: '/dashboard/tag',
-            component: resolve => require(["@/layout/DashboardLayout"], resolve),
-            children: [
+            component: DashboardLayout,
+            children:[
                 {
                     path: 'tag',
                     name: 'tag',
                     components: {
-                        main: resolve => require(["@/views/tag/Tag"], resolve),
+                        main: Tag,
                     }
                 },
                 {
                     path: 'monitor',
                     name: 'monitor',
                     components: {
-                        main: resolve => require(["@/views/monitor/Monitor"], resolve),
+                        main: Monitor,
                     }
                 },
                 {
                     path: 'redis',
                     name: 'redis',
                     components: {
-                        main: resolve => require(["@/views/monitor/RedisMonitor"], resolve),
+                        main: RedisMonitor,
                     }
                 },
                 {
                     path: 'entity',
                     name: 'entity',
                     components: {
-                        main: resolve => require(["@/views/monitor/Entity"], resolve),
+                        main: Entity,
                     }
                 },
             ]
@@ -47,26 +62,26 @@ export default new Router({
             //登录
             path: '/login',
             name: 'login',
-            component: resolve => require(["@/views/account/Login"], resolve),
+            component: Login
         },
         {
             //注册
             path: '/register',
             name: 'register',
-            component: resolve => require(["@/views/account/Register"], resolve),
+            component: Register
         },
         {
             path: '/',
             name: 'root',
             redirect: 'article',
-            component: resolve => require(["@/layout/Layout"], resolve),
+            component: Layout,
             children: [
                 {
                     path: 'about',
                     name: 'about',
                     components: {
-                        main: resolve => require(["@/views/about/About"], resolve),
-                        sidebar: resolve => require(["@/views/account/AccountSideBar"], resolve),
+                        main: About,
+                        sidebar: SideBar
                     }
                 },
                 {
@@ -74,8 +89,8 @@ export default new Router({
                     path: 'profile',
                     name: 'profile',
                     components: {
-                        main: resolve => require(["@/views/account/Profile"], resolve),
-                        sidebar: resolve => require(["@/views/account/AccountSideBar"], resolve)
+                        main:Profile,
+                        sidebar:AccountSideBar
                     }
                 },
                 {
@@ -83,8 +98,8 @@ export default new Router({
                     path: 'settings',
                     name: 'settings',
                     components: {
-                        main: resolve => require(["@/views/account/Settings"], resolve),
-                        sidebar: resolve => require(["@/components/sidebar/SideBar"], resolve)
+                        main:Settings,
+                        sidebar:AccountSideBar
                     }
                 },
                 {
@@ -92,8 +107,8 @@ export default new Router({
                     path: 'article',
                     name: 'article',
                     components: {
-                        main: resolve => require(["@/views/article/ArticleList"], resolve),
-                        sidebar: resolve => require(["@/components/sidebar/SideBar"], resolve),
+                        main: ArticleList,
+                        sidebar: SideBar
                     }
                 },
                 {
@@ -101,8 +116,8 @@ export default new Router({
                     path: 'article/:id',
                     name: 'detail',
                     components: {
-                        main: resolve => require(["@/views/article/ArticleDetail"], resolve),
-                        sidebar: resolve => require(["@/components/sidebar/SideBar"], resolve),
+                        main:ArticleDetail,
+                        sidebar:SideBar
                     }
                 },
             ]

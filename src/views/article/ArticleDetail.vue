@@ -47,7 +47,7 @@
 </template>
 
 <script>
-    import ArticleComment from "@/views/article/ArticleComment";
+    import ArticleComment from "../../views/article/ArticleComment";
     import TimeLine from "../../components/timeline/TimeLine";
     import { articleDetail} from "../../api";
 
