@@ -5,6 +5,7 @@ const Dotenv = require('dotenv-webpack');
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -46,6 +47,7 @@ module.exports = {
         // make sure to include the plugin for the magic
         new Dotenv(),
         new VueLoaderPlugin(),
+        new UglifyJsPlugin()
     ],
     resolve: {
         alias: {
