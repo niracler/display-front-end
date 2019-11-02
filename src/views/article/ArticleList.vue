@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import ArticleBaseList from "@/views/article/ArticleBaseList";
+    import ArticleBaseList from "../../views/article/ArticleBaseList";
     import Pagination from "../../components/pagination/Pagination";
     import {articleList} from "../../api"
 
