@@ -1,3 +1,4 @@
+
 const path = require('path');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
@@ -6,6 +7,7 @@ const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -14,6 +16,9 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
         filename: 'build.js'
+    },
+    externals: {
+
     },
     module: {
         rules: [
@@ -58,7 +63,6 @@ module.exports = {
     devServer: {
         hot: true, //热启动
         host: '127.0.0.1',
-        port: 3000,
         historyApiFallback: true,
         noInfo: false,
         overlay: true,
@@ -67,7 +71,10 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: '#eval-source-map'
+    devtool: '#eval-source-map',
+    optimization: {
+        minimize: false,
+    },
 };
 
 if (process.env.NODE_ENV === 'production') {
@@ -79,12 +86,6 @@ if (process.env.NODE_ENV === 'production') {
                 NODE_ENV: '"production"'
             }
         }),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     sourceMap: true,
-        //     compress: {
-        //         warnings: false
-        //     }
-        // }),
         new webpack.LoaderOptionsPlugin({
             minimize: true
         }),
@@ -95,13 +96,19 @@ if (process.env.NODE_ENV === 'production') {
             threshold: 2048,
             minRatio: 0.8
         })
-    ])
+    ]);
+    module.exports.optimization = {
+        minimize: true,
+            minimizer: [new TerserPlugin()],
+    };
 }
 
 if (process.env.NODE_ENV === 'development') {
     module.exports.devtool = '#source-map';
     // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
-        new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            analyzerPort:8081
+        }),
     ])
 }
