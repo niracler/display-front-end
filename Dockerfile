@@ -21,7 +21,6 @@ RUN npm run build
 # 关于nginx的配置
 FROM nginx:alpine
 
-COPY --from=build-stage /app/public /usr/share/nginx/html
 COPY --from=build-stage /app/dist /usr/share/nginx/html/dist
 
 RUN rm /etc/nginx/conf.d/default.conf

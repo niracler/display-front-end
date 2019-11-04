@@ -6,7 +6,12 @@ module.exports = {
         plugins: [
 
         ],
-    }
+    },
+    devServer: {
+        host: '0.0.0.0',
+        hot: true,
+        disableHostCheck: true,
+    },
 };
 
 if (process.env.NODE_ENV === 'production') {
@@ -26,7 +31,7 @@ if (process.env.NODE_ENV === 'development') {
     // http://vue-loader.vuejs.org/en/workflow/develpoment.html
     module.exports.configureWebpack.plugins = (module.exports.plugins || []).concat([
         new BundleAnalyzerPlugin({
-            analyzerPort:8081
+            analyzerPort:8088
         }),
     ]);
 }
