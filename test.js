@@ -1,4 +1,3 @@
-
 const path = require('path');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
@@ -10,16 +9,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
-    entry: './src/main.js',
-    output: {
-        path: path.resolve(__dirname, './dist'),
-        publicPath: '/dist/',
-        filename: 'build.js'
-    },
-    externals: {
-
-    },
     module: {
         rules: [
             {
@@ -99,7 +88,7 @@ if (process.env.NODE_ENV === 'production') {
     ]);
     module.exports.optimization = {
         minimize: true,
-            minimizer: [new TerserPlugin()],
+        minimizer: [new TerserPlugin()],
     };
 }
 
