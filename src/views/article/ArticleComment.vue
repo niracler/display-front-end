@@ -137,7 +137,7 @@
                 self.console.log(this.$route.params.id)
             },
         },
-        created() {
+        mounted() {
             this.getComments();
         },
     }

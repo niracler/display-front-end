@@ -2,16 +2,24 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/store.js';
+import promise from 'es6-promise';
+promise.polyfill();
 import './axios/'; //全局加载resource拦截器
 
 import 'jquery/dist/jquery.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'popper.js'
+import './assets/js/custom.js'
+import './assets/js/settings.js'
+import './assets/js/gleek.js'
+import './assets/js/styleSwitcher.js'
 import './assets/css/style.css'
 import moment from 'moment/moment.js'
 
 import * as Sentry from '@sentry/browser';
 import * as Integrations from '@sentry/integrations';
+
+
 
 Sentry.init({
     dsn: process.env.VUE_APP_DSN,
