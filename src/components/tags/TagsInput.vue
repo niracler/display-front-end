@@ -42,7 +42,7 @@
                 }
             }
         },
-        created() {
+        mounted() {
             self.console.log(this.tags);
         }
     }

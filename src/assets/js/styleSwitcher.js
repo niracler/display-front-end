@@ -1,5 +1,5 @@
 (function($) {
-    "use strict"
+    "use strict";
 
     const versionSelect = $('#theme_version');
     const layoutSelect = $('#theme_layout');
@@ -85,11 +85,5 @@
     $('input[name="sidebar_bg"]').on('click', function() {
         $('body').attr('data-sibebarbg', this.value);
     });
-
-
-
-
-
-
 
 })(jQuery);

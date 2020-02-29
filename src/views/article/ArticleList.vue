@@ -57,7 +57,7 @@
                 this.getArticleList();
             },
         },
-        created() {
+        mounted() {
             this.getArticleList();
         },
         watch: {

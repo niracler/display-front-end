@@ -86,7 +86,7 @@
                     mobile: that.mobile,
                     code: that.code,
                 }).then((response) => {
-                    self.console.log(response)
+                    self.console.log(response);
                     cookie.setCookie('name', response.data.username, 7);
                     cookie.setCookie('token', response.data.token, 7);
                     //存储在store
