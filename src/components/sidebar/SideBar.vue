@@ -63,7 +63,6 @@
             return {
                 categories: null,
                 comments: null,
-
             }
         },
         mounted() {

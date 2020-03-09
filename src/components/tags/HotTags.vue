@@ -20,7 +20,7 @@
             }
         },
         mounted() {
-            tagList({params: {ordering: '-num_times'}})
+            tagList({params: {ordering: '-num_times', ps: '30'}})
                 .then(response => (this.tags = response.data.results))
                 .catch(function (error) { // 请求失败处理
                     self.console.log(error);
