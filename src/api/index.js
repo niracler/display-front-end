@@ -6,6 +6,16 @@ export const proHost = process.env.VUE_APP_PRO_HOST;
 export const mediaHost = process.env.VUE_APP_MEDIA_HOST;
 export const host = proHost;
 
+//获取用户操作
+export const userOperationInfo = params => {
+    return axios.get(`${ginHost}/api/v1/uo`, params)
+};
+
+//获取访问量信息
+export const visitCountInfo = params => {
+    return axios.get(`${ginHost}/api/v1/vc`, params)
+};
+
 //获取游戏实体信息
 export const entityInfo = params => {
     return axios.get(`${ginHost}/api/v1/game`, params) //原来这里就用到了自定义插值，模板字符串以及箭头定义函数

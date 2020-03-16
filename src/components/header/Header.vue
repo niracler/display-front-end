@@ -12,24 +12,9 @@
                             Home
                         </router-link>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" :href="host + '/api'">API接口</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" :href="flaskHost + '/swagger'">API接口2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" :href="host + '/admin'">后台管理</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://plrom.niracler.com:5000">爬虫监控</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://jupyter.dgutdev.ml/tree/work/analysis">数据分析</a>
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item" v-show="username">
                         <router-link class="nav-link" exact-active-class="active" :to="{name:'dashboard'}">
-                            标签筛选
+                            后台管理
                         </router-link>
                     </li>
                     <li class="nav-item">
@@ -55,16 +40,21 @@
 <script>
     import {host, flaskHost} from "../../api";
     import HeaderRight from "./HeaderRight";
+    import cookie from "../../assets/js/cookie";
 
     export default {
         name: "Header",
         data() {
             return {
-                'host': host,
-                'flaskHost' : flaskHost
+                username: "",
+                host: host,
+                flaskHost : flaskHost
             }
         },
         components: {HeaderRight},
+        created() {
+            this.username = cookie.getCookie('name')
+        }
     }
 </script>
 

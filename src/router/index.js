@@ -15,6 +15,8 @@ import Tag from "../views/tag/Tag";
 import Monitor from "../views/monitor/Monitor";
 import RedisMonitor from "../views/monitor/RedisMonitor";
 import Entity from "../views/monitor/Entity";
+import VisitCount from "../views/monitor/VisitCount";
+import UserOperation from "../views/monitor/UserOperation";
 
 Vue.use(Router);
 
@@ -54,6 +56,20 @@ export default new Router({
                     name: 'entity',
                     components: {
                         main: Entity,
+                    }
+                },
+                {
+                    path: 'vc',
+                    name: 'visitCount',
+                    components: {
+                        main: VisitCount,
+                    }
+                },
+                {
+                    path: 'uo',
+                    name: 'userOperation',
+                    components: {
+                        main: UserOperation,
                     }
                 },
             ]

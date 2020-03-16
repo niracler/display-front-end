@@ -65,11 +65,20 @@
                         <a class="has-arrow" data-toggle="collapse" data-target="#collapseDatabase" aria-expanded="false"
                            aria-controls="collapseDatabase">
                             <i class="icon-speedometer menu-icon"></i>
-                            <span class="nav-text">数据库监控</span>
+                            <span class="nav-text">系统监控</span>
                         </a>
                         <ul id="collapseDatabase" class="collapse" aria-labelledby="headingDatabase" data-parent="#menu">
                             <li>
-                                <router-link :to="{name:'monitor'}">mongodb</router-link>
+                                <router-link :to="{name:'userOperation'}">操作日志管理</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name:'entity'}">Redis缓存管理</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name:'redis'}">Admin监控</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{name:'visitCount'}">访问量统计</router-link>
                             </li>
                             <li>
                                 <router-link :to="{name:'entity'}">实体对象</router-link>

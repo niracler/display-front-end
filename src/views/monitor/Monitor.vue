@@ -7,28 +7,12 @@
                 <h4 class="d-inline">对于mongodb的监控</h4>
                 <p class="text-muted">This is 3 column contents</p>
                 <div class="row">
-                    <div class="col-md-6 col-lg-3" v-for="mongoCol in mongoCols" :key="mongoCol.name">
+
+                    <div class="col-md-6 col-lg-3">
                         <div class="card">
-                            <div class="chart-wrapper mb-4">
-                                <div class="px-4 pt-4 d-flex justify-content-between">
-                                    <div>
-                                        <h4>{{ mongoCol.name }}</h4>
-                                        <p>Last 6 Month</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body border-top pt-4">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div>
-                                            <h5>数据条数</h5>
-                                            <h3>{{ mongoCol.count }}</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
                             <div class="chart-wrapper mb-4">
