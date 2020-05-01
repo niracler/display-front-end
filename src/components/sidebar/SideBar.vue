@@ -25,7 +25,7 @@
         </div>
 
         <!-- Side Widget -->
-        <div class="card my-4">
+        <!-- <div class="card my-4">
             <div class="card-body">
                 <h4 class="card-title">最新评论</h4>
                 <div id="activity">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 

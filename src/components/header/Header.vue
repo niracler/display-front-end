@@ -12,11 +12,14 @@
                             Home
                         </router-link>
                     </li>
-                    <li class="nav-item" v-show="username">
+                    <li class="nav-item">
+                        <a class="nav-link" :href="host + '/admin'">后台管理</a>
+                    </li>
+                    <!-- <li class="nav-item" v-show="username">
                         <router-link class="nav-link" exact-active-class="active" :to="{name:'dashboard'}">
                             后台管理
                         </router-link>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <router-link class="nav-link" exact-active-class="active" :to="{name:'about'}">
                             关于我们
@@ -32,7 +35,6 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-menu"></span>
             </button>
-
         </div>
     </nav>
 </template>
