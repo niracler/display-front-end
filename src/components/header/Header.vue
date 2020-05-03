@@ -2,17 +2,17 @@
     <nav id="header" class="navbar navbar-expand-lg bg-primary-lighten-2 ">
 
         <div class="container-fluid">
-            <router-link class="navbar-brand" exact-active-class="active" :to="{name:'article'}">
+            <router-link class="navbar-brand" exact-active-class="active" :to="{name:'event'}">
                 <h3 class="text-primary">GameNews</h3>
             </router-link>
             <div class="collapse navbar-collapse float-right" id="navbarNav">
                 <ul class="navbar-nav ml-auto ">
                     <li class="nav-item">
-                        <router-link class="nav-link" exact-active-class="active" :to="{name:'article'}">
+                        <router-link class="nav-link" exact-active-class="active" :to="{name:'event'}">
                             Home
                         </router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" v-show="username">
                         <a class="nav-link" :href="host + '/admin'">后台管理</a>
                     </li>
                     <!-- <li class="nav-item" v-show="username">
@@ -20,6 +20,11 @@
                             后台管理
                         </router-link>
                     </li> -->
+                    <li class="nav-item">
+                        <router-link class="nav-link" exact-active-class="active" :to="{name:'article'}">
+                            新闻
+                        </router-link>
+                    </li>
                     <li class="nav-item">
                         <router-link class="nav-link" exact-active-class="active" :to="{name:'about'}">
                             关于我们

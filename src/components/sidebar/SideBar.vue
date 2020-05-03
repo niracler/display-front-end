@@ -53,7 +53,7 @@
 </template>
 
 <script>
-    import {commentList} from "../../api";
+    // import {commentList} from "../../api";
     import HotTags from "../tags/HotTags";
 
     export default {
@@ -66,11 +66,11 @@
             }
         },
         mounted() {
-            commentList()
-                .then(response => (this.comments = response.data.results))
-                .catch(function (error) { // 请求失败处理
-                    self.console.log(error);
-                });
+            // commentList()
+            //     .then(response => (this.comments = response.data.results))
+            //     .catch(function (error) { // 请求失败处理
+            //         self.console.log(error);
+            //     });
         }
     }
 </script>

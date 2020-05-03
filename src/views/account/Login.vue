@@ -14,7 +14,7 @@
                                 <form class="mt-5 mb-5 login-input">
                                     <div class="form-group">
                                         <input type="text" class="form-control" @focus="errorUnshow" v-model="userName"
-                                               placeholder="Mobile">
+                                               placeholder="UserName">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" @focus="errorUnshow"

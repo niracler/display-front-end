@@ -46,6 +46,16 @@ export const articleDetail = params => {
     return axios.get(`${host}/api/article/`, params)
 };
 
+//获取事件列表
+export const eventList = params => {
+    return axios.get(`${host}/api/event/`, params)
+};
+
+//获取事件内容
+export const eventDetail = (id, params) => {
+    return axios.get(`${host}/api/event/`+id+`/`, params)
+};
+
 //获取评论列表
 export const commentList = params => {
     return axios.get(`${host}/api/comment/`, params)

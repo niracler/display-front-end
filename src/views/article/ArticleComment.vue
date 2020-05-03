@@ -115,21 +115,21 @@
         },
         methods: {
             getComments() {
-                commentList({
-                    params: {
-                        page: this.page,
-                        article: this.$route.params.id,
-                    }
-                }).then(response => {
-                    if (response.status === 200) {
-                        this.comments = response.data.results;
-                        this.totalPage = Math.ceil(response.data.count / 10); //计算真实的总页数
-                    } else {
-                        alert('获取数据失败！！！')
-                    }
-                }).catch(function (error) { // 请求失败处理
-                    self.console.log(error);
-                });
+                // commentList({
+                //     params: {
+                //         page: this.page,
+                //         article: this.$route.params.id,
+                //     }
+                // }).then(response => {
+                //     if (response.status === 200) {
+                //         this.comments = response.data.results;
+                //         this.totalPage = Math.ceil(response.data.count / 10); //计算真实的总页数
+                //     } else {
+                //         alert('获取数据失败！！！')
+                //     }
+                // }).catch(function (error) { // 请求失败处理
+                //     self.console.log(error);
+                // });
             },
             goPage(data) {
                 this.page = data.page;
