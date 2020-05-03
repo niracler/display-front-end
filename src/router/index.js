@@ -15,6 +15,10 @@ import Tag from "../views/tag/Tag";
 import Monitor from "../views/monitor/Monitor";
 import RedisMonitor from "../views/monitor/RedisMonitor";
 import Entity from "../views/monitor/Entity";
+import VisitCount from "../views/monitor/VisitCount";
+import UserOperation from "../views/monitor/UserOperation";
+import EventList from "../views/article/EventList";
+import EventDetail from "../views/article/EventDetail";
 
 Vue.use(Router);
 
@@ -56,6 +60,20 @@ export default new Router({
                         main: Entity,
                     }
                 },
+                {
+                    path: 'vc',
+                    name: 'visitCount',
+                    components: {
+                        main: VisitCount,
+                    }
+                },
+                {
+                    path: 'uo',
+                    name: 'userOperation',
+                    components: {
+                        main: UserOperation,
+                    }
+                },
             ]
         },
         {
@@ -73,7 +91,7 @@ export default new Router({
         {
             path: '/',
             name: 'root',
-            redirect: 'article',
+            redirect: 'event',
             component: Layout,
             children: [
                 {
@@ -120,6 +138,25 @@ export default new Router({
                         sidebar:SideBar
                     }
                 },
+                {
+                    //其实是一个新闻事件列表啦
+                    path: 'event',
+                    name: 'event',
+                    components: {
+                        main: EventList,
+                        sidebar: SideBar
+                    }
+                },
+                {
+                    //其实是一个新闻事件详情啦
+                    path: 'event/:id',
+                    name: 'event',
+                    components: {
+                        main: EventDetail,
+                        sidebar: SideBar
+                    }
+                },
+                
             ]
         },
     ]

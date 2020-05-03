@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-3" v-for="entity in entities" :key="entity._id">
                         <div class="card">
-                            <img class="img-fluid" :src="mediaHost + entity.img_path" alt="">
+                            <img class="img-fluid" :src="ginHost + entity.img_path" alt="">
                             <div class="card-body">
                                 <h5 class="card-title">{{ entity.name }}</h5>
                                 <p class="card-text">This is a wider card with supporting text and below as a
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-    import {entityInfo, mediaHost, host} from "../../api";
+    import {entityInfo,  ginHost,  host} from "../../api";
     import Pagination from "../../components/pagination/Pagination";
 
     export default {
@@ -42,7 +42,7 @@
             return {
                 entities: null,
                 host: host,
-                mediaHost: mediaHost,
+                ginHost: ginHost,
                 totalPage: 1,
                 page: 1,
             }
@@ -51,7 +51,8 @@
             getEntity() {
                 entityInfo({
                     params: {
-                        page: this.page,
+                        p: this.page,
+                        page_size: 16, 
                     }
                 }).then(response => {
                     if (response.status === 200) {

@@ -1,39 +1,39 @@
 <template>
 
-    <div id="article-list">
+    <div id="event-list">
         <h1 class="my-4">
             {{ msg }}
             <small></small>
         </h1>
 
-        <ArticleBaseList :articles="articles"></ArticleBaseList>
+        <EventBaseList :events="events"></EventBaseList>
         <Pagination v-on:go-page="goPage" :totalPage="totalPage"></Pagination>
     </div>
 
 </template>
 
 <script>
-    import ArticleBaseList from "../../views/article/ArticleBaseList";
+    import EventBaseList from "../../views/article/EventBaseList";
     import Pagination from "../../components/pagination/Pagination";
-    import {articleList} from "../../api"
+    import {eventList} from "../../api"
 
     export default {
-        name: "ArticleList",
+        name: "EventList",
         components: {
-            ArticleBaseList,
+            EventBaseList,
             Pagination
         },
         data() {
             return {
-                msg: '这是新闻列表',
-                articles: null,
+                msg: '这是新闻事件列表！！！',
+                events: null,
                 totalPage: 1,
                 page:1,
             }
         },
         methods: {
-            getArticleList() {
-                articleList({
+            getEventList() {
+                eventList({
                     params: {
                         p: this.page,
                         website_name: this.$route.query.website_name,
@@ -42,7 +42,7 @@
                     }
                 }).then(response => {
                     if (response.status === 200) {
-                        this.articles = response.data.results;
+                        this.events = response.data.results;
 
                         this.totalPage = Math.ceil(response.data.count / 10); //计算真实的总页数
                     } else {
@@ -54,15 +54,15 @@
             },
             goPage(data) {
                 this.page = data.page;
-                this.getArticleList();
+                this.getEventList();
             },
         },
         mounted() {
-            this.getArticleList();
+            this.getEventList();
         },
         watch: {
             $route() {
-                this.getArticleList();
+                this.getEventList();
             }
         }
     }

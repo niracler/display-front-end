@@ -25,7 +25,7 @@
         </div>
 
         <!-- Side Widget -->
-        <div class="card my-4">
+        <!-- <div class="card my-4">
             <div class="card-body">
                 <h4 class="card-title">最新评论</h4>
                 <div id="activity">
@@ -48,12 +48,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
-    import {commentList} from "../../api";
+    // import {commentList} from "../../api";
     import HotTags from "../tags/HotTags";
 
     export default {
@@ -63,15 +63,14 @@
             return {
                 categories: null,
                 comments: null,
-
             }
         },
         mounted() {
-            commentList()
-                .then(response => (this.comments = response.data.results))
-                .catch(function (error) { // 请求失败处理
-                    self.console.log(error);
-                });
+            // commentList()
+            //     .then(response => (this.comments = response.data.results))
+            //     .catch(function (error) { // 请求失败处理
+            //         self.console.log(error);
+            //     });
         }
     }
 </script>
