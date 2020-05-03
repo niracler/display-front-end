@@ -62,9 +62,9 @@
                     </div>
                     <div class="col py-2">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="float-right text-muted">{{ article.publish_time | dateStr }}</div>
-                                <strong class="">{{ article.title  }}</strong>
+                            <div  class="card-body">
+                                <div  class="float-right text-muted">{{ article.publish_time | dateStr }}</div>
+                                <a :href="article.url"><strong class="">{{ article.title  }}</strong></a>
                                 <p>{{article.content | msgFormat(100)}}</p>
                             </div>
                         </div>

@@ -25,7 +25,7 @@
         },
         data() {
             return {
-                msg: '我们这里是一个游戏新闻资讯平台！！',
+                msg: '这是新闻列表',
                 articles: null,
                 totalPage: 1,
                 page:1,
